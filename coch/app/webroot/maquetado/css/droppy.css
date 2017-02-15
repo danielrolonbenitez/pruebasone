@@ -1,0 +1,87 @@
+/* Basic code - don't modify */
+ 
+.droppy {
+      display: block; position: relative; z-index: 1000;
+      /*margin: 0; padding: 0;*/  }
+.droppy li {
+      display: block; list-style: none; float: left; position: relative; left:0; top:0;
+      /*margin: 0; padding: 0;*/  }
+.droppy a { display: block; }
+.droppy ul { display: none; position: absolute; left: 0; margin: 0; padding: 0; }
+* html .droppy ul { line-height: 0; } /* IE6 "fix" */
+.droppy ul a { zoom: 1; } /* IE6/7 fix */
+.droppy ul li { float: left; }
+.droppy ul ul { top: 0; }
+
+
+/* Essentials - configure this */
+.droppy ul { width: 100%; }
+.droppy ul ul { left: 131px }
+
+
+/* Everything else is theming */ 
+.droppy { height: 30px; }
+.droppy *:hover {  }
+.droppy li {
+      /*padding: 0 2.21rem;*/
+      /*padding: 0 1rem;*/
+      /*margin: 0 1.62em;*/
+      text-align: center;
+      height: 30px;
+}
+.droppy a {
+      width: 196px; height: 21px; padding: 9px 0 0;
+      color:#FFFFFF; font: 14px/1em 'fjalla_oneregular'; text-transform: uppercase; white-space: nowrap;
+}
+.droppy li.hover,
+.droppy li.activo {  background-color: #FFFFFF;  }
+.droppy li.hover a,
+.droppy li.activo a {
+      /*border-bottom: 1px solid #9B1B36;*/
+      color: #9B1B36; }
+.droppy ul {
+      top: 30px;
+      background-color: #FFFFFF;
+      /*padding: 0px 8px 20px;*/
+      width: 965px; }
+      .droppy ul li { margin: 0; padding: 0; height: 28px; }
+      .droppy ul li a { width: auto; text-transform: inherit; height: 28px; }
+      
+      .droppy .menu-item1 ul { left: 0px; }
+      .droppy .menu-item2 ul { left: -196px; }
+      .droppy .menu-item3 ul { left: -398px; }
+      .droppy .menu-item4 ul { left: -588px; }
+      .droppy .menu-item5 ul { left: -784px; }
+      
+      /* Sub Productos */
+      .droppy ul.nav-menu-subbox {
+            width: 916px;
+            padding: 0px 52px 40px 38px;
+            background: url("../images/coch11.png") no-repeat scroll center top transparent;
+      }
+      .droppy ul.nav-menu-subbox li {
+            width: 229px; height: 165px;
+            border-top: 1px solid #95a9b5; }
+      .droppy ul.nav-menu-subbox li.menu-item-sub1,
+      .droppy ul.nav-menu-subbox li.menu-item-sub2,
+      .droppy ul.nav-menu-subbox li.menu-item-sub3,
+      .droppy ul.nav-menu-subbox li.menu-item-sub4 { border-top: 1px solid #FFFFFF; }
+      .droppy ul.nav-menu-subbox li a {
+            border-bottom: medium none !important;
+            text-transform: none;
+            padding: 0;
+            width: 229px; height: 165px;
+            color: #48626F !important;
+      }
+      /* --------------- */
+      
+      .droppy ul a {  }
+      .droppy ul a.has-subnav { }
+      .droppy ul a.hover { background-color: #F1F2F2; }
+      /*.droppy ul a { border-bottom: none; }  - I also needed this for IE6/7 */
+      
+      
+      /*Chrome*/
+      @media screen and (-webkit-min-device-pixel-ratio:0) {
+            .droppy ul li a {  /*padding: 0;*/  }
+      }

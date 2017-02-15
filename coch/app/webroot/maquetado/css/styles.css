@@ -1,0 +1,556 @@
+/*
+	Projecto:  COCH
+	Archivo:  css/styles.css
+	Fecha:  Junio 2013
+	
+------------------------------------------------------*/
+
+
+
+/* =STRUCTURE  ------------------------------------*/
+body {
+	background: url("../images/coch00.jpg") no-repeat scroll center top #dcdddf;
+        color:#5c5c5c;
+	font: 12px/100% 'CalibriRegular',sans-serif;
+}
+a {
+	outline:none;
+	text-decoration: none;
+}	
+.left { float:left !important; }
+.right { float:right !important; }
+.center { margin:0 auto; }
+.disabled {  cursor: default;  }
+/*------------------------------*/
+
+
+/* =Grilla  ------------------------------------*/
+header,
+section,
+footer {
+    float: left;
+    clear: both;
+    position: relative; top:0; left:0;
+    width: 100%; }
+header { z-index: 10; }
+section { z-index: 5; }
+footer { }
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 980px;
+}
+
+.container .grid_1 {  width: 137px;  }
+.container .grid_2 {  width: 289px;  }
+.container .grid_2a {  width: 350px;  }
+.container .grid_2b {  width: 395px;  }
+.container .grid_3 {  width: 440px;  }
+.container .grid_4 {  width: 592px;  }
+.container .grid_5 {  width: 744px;  }
+.container .grid_6 {  width: 895px;  }
+
+.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6 {
+	display: inline;
+	float: left;
+	margin-left: 7px;
+	margin-right: 7px;
+}
+.alpha { margin-left: 0px; }
+.omega { margin-right: 0px; }
+/*------------------------------*/
+
+
+/* =Clearfix  ------------------------------------*/
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ .clearfix { display: inline-block; }
+ html[xmlns] .clearfix { display: block; }
+ * html .clearfix { height: 1%; }
+/*------------------------------*/
+
+
+/* =FONTS  ------------------------------------*/
+h1 { font-size: 76px; line-height: 1.2em; }
+h2 { font-size: 47px; line-height: 1.2em; }
+h3 { font-size: 27px; line-height: 1.2em; }
+h4 { font-size: 24px; line-height: 1.2em; }
+h5 { font-size: 18px; line-height: 1.2em; }
+h6 { font-size: 14px; line-height: 1.2em; }
+p { font-size: 12px; line-height: 1.2em; }
+/*------------------------------*/
+
+
+/* =FORM  ------------------------------------*/
+.formulario { margin: 30px 0; }
+form div {
+	clear: both;
+	overflow:hidden;
+	position: relative; top: 0; left: 0;
+}
+form div label {
+	color: #FFFFFF;
+	display: block;
+	float: left;
+	margin: 0;
+	font: 12px/1.2em 'CalibriRegular',sans-serif;
+	text-align: left;
+	width: 120px;
+	position: absolute; left: 10px; top: 8px;
+}
+form div input, form div textarea {
+	background: none repeat scroll 0 0 #a1a6af;
+	border: medium none;
+	color: #666666;
+	font: 12px/1.2em 'CalibriRegular',sans-serif;
+	margin-bottom: 5px;
+	padding: 8px 5px 7px 5px;
+	width: 254px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+form input[type="button"],
+form input[type="submit"] {
+	/*background: none no-repeat scroll 0 0 transparent;*/
+	border: medium none;
+	/*color: #000000;*/
+	cursor: pointer;
+	/*float: left;*/
+	/*font-weight: bold;*/
+	/*margin: 0 0 0 100px;*/
+	/*padding: 0 0 0 20px;*/
+}
+/*------------------------------*/
+
+
+/* =ALING  ------------------------------------*/
+.alignleft, img.alignleft {
+    display: inline;
+    float: left;
+    margin-right: 19px;
+}
+.alignright, img.alignright {
+    display: inline;
+    float: right;
+    margin-left: 19px;
+}
+.aligncenter, img.aligncenter {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+img.alignleft, img.alignright, img.aligncenter { margin-bottom: 12px; }
+/*------------------------------*/
+
+
+
+/* =HEADER  ------------------------------------*/
+.site-header {
+	background: url("../images/coch000.png") no-repeat scroll center top #e5e6e8;
+	padding-top: 30px;
+	height:105px;
+	/*height:133px;*/
+}
+.site-header .container { height:105px; }
+.site-header hgroup { height: 50px; width: 100%; }
+.site-header h3 {
+	background:url("../images/coch01.png") no-repeat scroll 0 0 transparent;
+	height: 50px; width: 199px;
+	display: block;
+	font-size: 0;
+	overflow: hidden;
+	text-indent: -30000px;
+}
+.site-header h6 {
+	color: #7A808C;
+	font-family: 'fjalla_oneregular';
+	margin: 17px 0 0 20px;
+}
+/* =menu  ---*/
+.main-navigation {
+	background: url("../images/coch02.png") no-repeat scroll 0 0 transparent;
+	clear: both;
+	margin-left: -11px;
+	margin-top: 20px;
+	padding: 0 11px;
+	/*height: 63px;*/ height: 35px; width: 980px;
+	overflow: hidden;
+}
+.main-navigation ul.nav-menu {
+	display: inline-block;
+	margin: 0;
+	padding: 5px 0 0;
+	text-align: left;
+	text-indent: 0;
+	width: 100%;
+}
+.main-navigation ul li.menu-item {}
+.main-navigation ul li.menu-item,
+.main-navigation ul li.menu-item a {
+	display: inline-block;
+	text-decoration: none;
+	position: relative; left:0; top: 0;
+}
+.main-navigation ul li.menu-item a span.linea {
+	display: block;
+	position: absolute; left: 50%; bottom: 0;
+	height: 1px; width: 125px;
+	margin-left: -63px;
+	background-color: #6C3F44;
+}
+.main-navigation ul li.hover a span.linea,
+.main-navigation ul li.activo a span.linea { background-color: #B81F3A; }
+.main-navigation ul.nav-menu .menu-item1 {
+-webkit-border-top-left-radius: 10px;
+-moz-border-radius-topleft: 10px;
+border-top-left-radius: 10px; }
+.main-navigation ul.nav-menu .menu-item5 {
+-webkit-border-top-right-radius: 10px;
+-moz-border-radius-topright: 10px;
+border-top-right-radius: 10px; }
+.main-navigation ul ul li a img { display:block; }
+.main-navigation ul ul li a small { display:block; font: 12px/1.2em 'CalibriRegular'; }
+.main-navigation ul ul li a span { font: 16px/1.2em 'fjalla_oneregular'; }
+
+/* =seccion menu  ---*/
+.section-navigation {
+	background: url("../images/coch000.png") no-repeat scroll center -135px #e5e6e8;
+	clear: both;
+	height: 28px; width: 100%;
+}
+.section-navigation .container {
+	background: url("../images/coch09.png") repeat-y scroll center top transparent;
+	height: 28px;
+	padding: 0 30px;
+	/*-webkit-box-shadow: inset 0px 5px 10px -5px #bbbbbb;*/
+        /*box-shadow: inset 0px 5px 10px -5px #bbbbbb;*/
+}
+.nav-menu-seccion {
+	display: inline-block;
+	margin: 0;
+	text-align: left;
+	text-indent: 0;
+	width: 650px;
+}
+ul.nav-menu-seccion li,
+ul.nav-menu-seccion li a {
+	display: inline-block;
+	text-decoration: none;
+}
+ul.nav-menu-seccion li {
+	float: left;
+	position: relative;
+	text-align: center;
+	width: auto;
+}
+ul.nav-menu-seccion li a {
+	padding: 0 1.3rem;
+	color:#405965 !important;
+	font: 14px/2em 'fjalla_oneregular';
+	white-space: nowrap;
+}
+ul.nav-menu-seccion li:hover,
+ul.nav-menu-seccion li.activo { color:#405965 !important; background-color: #ededee;  }
+.section-navigation .link04 { margin-right: 20px; }
+/*------------------------------*/
+
+
+/* =CONTENT  ------------------------------------*/
+.secSlider {
+	height: 386px; width: 100%;
+	background: none repeat scroll 0 0 #c3c4c7;
+	position: relative; top: 0px; left: 0;
+}
+.secSlider #slideshow {
+	height: 386px; width: 1600px;
+	overflow:hidden;
+	position: relative; top: 0px; left: 0;
+}
+.ws_images ul { height: 386px; width: 1600px; }
+.ws_images ul li { height: 386px; width: 1600px !important; float: left; }
+.secSlider .secSliderTop,
+.secSlider .secSliderBottom {
+	height: 18px; width: 100%;
+	position: absolute; left: 0; z-index: 100;
+}
+.secSlider .secSliderTop { background: url("../images/coch12.png") repeat scroll 0 0 transparent; top: 0px; }
+.secSlider .secSliderBottom { background: url("../images/coch13.png") repeat scroll 0 0 transparent; bottom: 0px; }
+.secImgslim .secSliderTop,
+.secImgslim .secSliderBottom { z-index: 1; }
+/**/
+#content {  }
+.secContent { width: 100%; float: left; }
+/*.main { width:100%; }*/
+.main {
+	width:910px;
+	padding: 20px 35px 40px;
+}
+.secConTop, .secConMid { float: left; width: 100%; }
+.secConTop { background: url("../images/coch07.png") repeat scroll 0 0 transparent; }
+.secConMid { background: url("../images/coch09.png") repeat-y scroll center top transparent; }
+.secConMid .main { background: none no-repeat scroll 0 0 #f1f2f2; }
+section li { list-style: disc inside none; }
+/**/
+.gris { color:#BCCBD3; }
+.azul { color:#00234F; }
+.rojo { color:#B71F38; }
+.rojodark { color:#9B1B36; }
+.bgrojo, .bgazul, .bgblanco {
+	opacity:0.8; filter: alpha(opacity=80);
+	padding: 12px 20px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+.bgrojo { background-color:#B71F38; }
+.bgazul { background-color:#001841; }
+.bgblanco { background-color:#FFFFFF; }
+.shadow {
+	text-shadow: 0px 0px 6px #333333;
+        filter: dropshadow(color=#333333, offx=0, offy=0);
+}
+/* Botones --------------- */
+.link01 {
+	background: url("../images/coch03.png") no-repeat scroll 0 0 transparent;
+	border:medium none;
+	height: 24px; width: 83px;
+	text-align: center;
+	color:#FFFFFF;
+	font: 13px/1.8em 'CalibriRegular',sans-serif;
+	display: table-cell;
+	vertical-align: middle;
+	padding: 0;
+}
+.link01:hover { background: url("../images/coch03.png") no-repeat scroll 0 -24px transparent; }
+.link02 {
+	color:#B71F38;
+	font: 11px/1.2em 'fjalla_oneregular',sans-serif;
+}
+.link02:hover { color:#C43041; }
+.link03 {
+	background: url("../images/coch04.png") no-repeat scroll 0 0 transparent;
+	border:medium none;
+	height: 23px; width: 264px;
+	text-align: center;
+	color:#FFFFFF;
+	font: 13px/1.8em 'CalibriRegular',sans-serif;
+	display: table-cell;
+	vertical-align: middle;
+	padding: 0;
+}
+.link03:hover { background: url("../images/coch04.png") no-repeat scroll 0 -23px transparent; }
+.link04 {
+	color:#193966;
+	font: 14px/2em 'fjalla_oneregular',sans-serif;
+}
+.link04:hover { color:#0d4473; }
+/*------------------------------*/
+
+
+/* =HOME  ------------------------------------*/
+.secHSlider .container {
+	height: 386px; width: 1600px;
+	position: absolute; top: 0px; left: 50%;
+	overflow:hidden;
+	margin-left: -800px;
+}
+#wowslider-container1 .ws-title h1 { line-height: 1em; }
+#wowslider-container1 .ws-title h2 { line-height: 1.1em; }
+#wowslider-container1 .wows0 h2 { margin-top: 170px; }
+#wowslider-container1 .wows0 h5 { margin-top: 10px; }
+#wowslider-container1 .wows1 h1 { position: absolute; left: 0; bottom: 20px; }
+#wowslider-container1 .wows1 h5 { position: absolute; right: 0; bottom: 20px; }
+#wowslider-container1 .wows2 h1 { margin-top: 43px; }
+#wowslider-container1 .wows2 h3 { font-size: 30px; margin-top: 8px; }
+#wowslider-container1 .wows2 h5 { margin-top: 68px; opacity: 0.7; filter: alpha(opacity=70); }
+#wowslider-container1 .wows3 h3 {
+	position: absolute; left: 340px; bottom: 35px;
+	width: 300px;
+	text-align: center;
+	font-size: 36px; }
+#wowslider-container1 .wows3 h3 small {
+	display: block;
+	font-size: 31px;
+	line-height: 29px; }
+/**/
+.secHContent { height: 200px; background: url("../images/coch09.png") repeat-y scroll center top transparent; }
+.secHContent #content { height: 200px; overflow:hidden; }
+.secHContent .container { height: 200px; }
+.secHContent .main { padding:0; height: 200px; width: 680px; }
+.secHContent .main .mainTxt {
+	height: 200px; width: 375px;
+	padding: 0 0 0 25px;
+}
+.secHContent .main .mainTxt h6 { color: #005F81; font-family: 'fjalla_oneregular'; margin: 20px 0 3px; }
+.secHContent .main .mainTxt h3 { color: #FFFFFF; font-family: 'fjalla_oneregular'; margin-bottom: 10px; }
+.secHContent .main .mainTxt h3 span { color: #003767; }
+.secHContent .main .mainTxt p { color: #FFFFFF; font: 13px/1.2em 'CalibriRegular',sans-serif; margin-bottom:10px; width: 345px; }
+.secHContent .main .mainTxt a { float: right; margin-right: 25px; }
+.secHContent .sidebar {
+	padding: 0 15px 0;
+	height: 200px; width: 270px;
+	text-align: center;
+	background: none repeat scroll 0 0 #79808d;
+}
+.secHContent .sidebar h5 { font-family: 'fjalla_oneregular'; margin: 17px 0 1px; }
+.secHContent .sidebar h4 { color: #FFFFFF; font-family: 'fjalla_oneregular'; margin-bottom: 11px;  }
+.secHContent .sidebar p { color: #FFFFFF; font: 13px/1.2em 'CalibriRegular',sans-serif; opacity: 0.6; filter: alpha(opacity=60); margin-bottom:19px; }
+.secHContent .sidebar .formNewsletter {}
+.secHContent .sidebar .formNewsletter #FN_button { float:right;}
+/*------------------------------*/
+	
+	
+/* =SECTIONS  ------------------------------------*/
+.breadcrumbs { padding-top: 10px; }
+.breadcrumbs h6 {
+	color: #253842;
+	font: 13px/1.2em 'CalibriRegular';
+}
+.breadcrumbs .selected { text-decoration: underline; }
+/**/
+.secCopete {
+	color:#FFFFFF;
+	font: 20px/2.2em 'fjalla_oneregular',sans-serif;
+	margin-right: 30px;
+}
+/**/
+.secProd .secTitulo { font-family: 'fjalla_oneregular'; }
+.secProd .secTitulosub { color: #243842; margin-bottom: 15px; font-family: 'CalibriRegular'; }
+.secProd h6 { color: #49626F; }
+.secProd .items {
+	color: #49626F;
+	font: 13px/1.2em 'CalibriRegular';
+}
+	/* =Productos Presentacion  ------------------------------------*/
+		.secSliderImg {
+			position: absolute; top: 0px; left: 50%;
+			z-index:1;
+			margin-left: -800px;
+			/*height: 386px;*/
+			height: auto;
+			width: 1600px;
+		}
+		/**/
+		.secSecSlider .container {
+			height: 386px;
+			position: relative; top: 0px; left: 0;
+			overflow:hidden;
+			z-index: 5;
+		}
+		.secSecSlider .secTitulo {
+			clear: both;
+			font-family: 'fjalla_oneregular';
+			margin-top: 10px;
+		}
+		.secSecSlider .secTitulo h2 { font-size: 45px; }
+		/**/
+		.secProdPres {
+			padding: 20px 72px 40px;
+			width: 836px;
+		}
+		.secProdPres .grid_2a,
+		.secProdPres .grid_2b { float: left; margin: 0 22px; }
+	/* =Productos Caracteristicas  ------------------------------------*/
+		.secImgslim,
+		.secImgslim #slideshow,
+		.secImgslim .container { height: 150px; overflow: inherit; }
+		.secImgslim #slideshow { background: url("../images/coch10.png") no-repeat scroll center top transparent; }
+		.secImgslim #slideshow img {
+			position: absolute; top: 0px; left: 50%;
+			z-index:1;
+			height: auto;
+			width: 980px;
+			margin-left: -490px;
+		}
+		.secImgslim .secTitulo {
+			text-align: right;
+			width: 510px;
+		}
+		.secImgslim .secTitulo h3 { font-size: 32px; margin: 8px 0 0; }
+		.secImgslim .secTitulo h6 { font-size: 16px; color: #48626F; }
+		/**/
+		.secProdCarac {}
+		.secProdCarac .secTitulo {
+			font-size: 22px;
+			margin: 15px 0 15px 15px;
+		}
+		.secProdCarac .box {
+			text-align: center;
+			margin-bottom: 40px;
+			margin-left: 0;
+			margin-right: 0;
+			width: 303px;
+		}
+		.secProdCarac .box img { margin: 0 0 10px; }
+		.secProdCarac .box h5 { margin-bottom: 5px; }
+		.secProdCarac .box p {
+			color:#48626F;
+			font: 14px/1.3em 'CalibriRegular';
+			margin: 0 10px;
+			padding: 0 0 30px;
+			border-bottom: 1px solid #d3d3d3;
+			/*height: 222px;*/
+		}
+	/* =Productos Ficha Técnica  ------------------------------------*/
+		.secProdFT .secTitulo {
+			font-size: 22px;
+			margin: 15px 0 15px 15px;
+		}
+		.fTecnica { margin: 0 auto; }
+		.fTecnica tr {}
+		.fTecnica tr.even { background-color:#dee1e3; height: 20px; }
+		.fTecnica tr td {
+			color: #48626F;
+			font: 12px/1.2em 'CalibriRegular';
+			vertical-align: middle;
+		}
+		.fTecnica tr td.titulo { font: bold 12px/1.2em 'CalibriRegular'; }
+		.secProdFT img { display: block; margin: 30px auto; }
+/*------------------------------*/
+
+
+/* =FOOTER  ------------------------------------*/
+footer {
+	background: url("../images/coch08.png") no-repeat scroll center top transparent;
+	display: block;
+	text-align: center;
+	height: 300px;
+	color: #456783;
+}
+footer .module { float:left; margin: 0 10px; height: 230px; width: 313px; }
+footer .module01 { margin-right: 0; }
+footer .module02 { }
+footer .module03 { margin-right: 0; }
+footer .module h4 {
+	color: #003767;
+	padding: 27px 0 5px;
+}
+footer .module p { font: 13px/1.2em 'CalibriRegular',sans-serif; margin: 0 0 8px; }
+/*footer .module a { color: #9C1C35; }*/
+footer .module img { display: block; margin: 24px auto 0; }
+footer .module label { position: absolute; left: 30px; top: 8px; }
+footer .module textarea { height:31px; }
+footer .module .fc_txt { background: none repeat scroll 0 0 #babfc5; }
+footer .module03 .link03 { margin: 0 auto; }
+footer .moduleFull { clear: both; }
+footer .moduleFull p { font: 10px/1.7em Helvetica, Arial, sans-serif; }
+footer .moduleFull a { color: #9C1C35; }
+/*------------------------------*/
+
+
+/* =HACKS  ------------------------------------*/
+	/*Chrome*/
+	@media screen and (-webkit-min-device-pixel-ratio:0) {
+		footer .module img { margin: 28px auto 0; }
+	}
+/*------------------------------*/
+
+

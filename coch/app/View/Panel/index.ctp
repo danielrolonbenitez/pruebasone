@@ -1,0 +1,1 @@
+<h1><?php echo h(__('Bienvenido al panel de control')); ?></h1>

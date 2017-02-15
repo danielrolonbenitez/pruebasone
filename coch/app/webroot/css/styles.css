@@ -1,0 +1,1046 @@
+/*
+	Projecto:  COCH
+	Archivo:  css/styles.css
+	Fecha:  Junio 2013
+	
+------------------------------------------------------*/
+
+
+
+/* =STRUCTURE  ------------------------------------*/
+
+@import url(http://fonts.googleapis.com/css?family=Fjalla+One);
+
+body {
+	background: url("../images/coch00.jpg") no-repeat scroll center top #dcdddf;
+        color:#5c5c5c;
+	font: 12px/100% 'CalibriRegular',sans-serif;
+}
+a {
+	outline:none;
+	text-decoration: none;
+}	
+.left { float:left !important; }
+.right { float:right !important; }
+.center { margin:0 auto; }
+.disabled {  cursor: default;  }
+/*------------------------------*/
+
+
+/* =Grilla  ------------------------------------*/
+header,
+section,
+footer {
+    float: left;
+    clear: both;
+    position: relative; top:0; left:0;
+    width: 100%; }
+header { z-index: 10; }
+section { z-index: 5; }
+footer { }
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 980px;
+}
+
+.container .grid_1 {  width: 137px;  }
+.container .grid_2 {  width: 289px;  }
+.container .grid_2a {  width: 350px;  }
+.container .grid_2b {  width: 395px;  }
+.container .grid_3 {  width: 440px;  }
+.container .grid_4 {  width: 592px;  }
+.container .grid_5 {  width: 744px;  }
+.container .grid_6 {  width: 895px;  }
+
+.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6 {
+	display: inline;
+	float: left;
+	margin-left: 7px;
+	margin-right: 7px;
+}
+.alpha { margin-left: 0px; }
+.omega { margin-right: 0px; }
+/*------------------------------*/
+
+
+/* =Clearfix  ------------------------------------*/
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ .clearfix { display: inline-block; }
+ html[xmlns] .clearfix { display: block; }
+ * html .clearfix { height: 1%; }
+/*------------------------------*/
+
+
+/* =FONTS  ------------------------------------*/
+h1 { font-size: 76px; line-height: 1.2em; }
+h2 { font-size: 47px; line-height: 1.2em; }
+h3 { font-size: 27px; line-height: 1.2em; }
+h4 { font-size: 24px; line-height: 1.2em; }
+h5 { font-size: 18px; line-height: 1.2em; }
+h6 { font-size: 14px; line-height: 1.2em; }
+p { font-size: 12px; line-height: 1.2em; }
+/*------------------------------*/
+
+
+/* =FORM  ------------------------------------*/
+.formulario { margin: 30px 0; }
+form div {
+	clear: both;
+	overflow:hidden;
+	position: relative; top: 0; left: 0;
+}
+form div label {
+	color: #FFFFFF;
+	display: block;
+	float: left;
+	margin: 0;
+	font: 12px/1.2em 'CalibriRegular',sans-serif;
+	text-align: left;
+	width: 120px;
+	position: absolute; left: 10px; top: 8px;
+}
+form div input, form div textarea {
+	background: none repeat scroll 0 0 #a1a6af;
+	border: medium none;
+	color: #666666;
+	font: 12px/1.2em 'CalibriRegular',sans-serif;
+	margin-bottom: 5px;
+	padding: 8px 5px 7px 5px;
+	width: 254px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+form input[type="button"],
+form input[type="submit"] {
+	/*background: none no-repeat scroll 0 0 transparent;*/
+	border: medium none;
+	/*color: #000000;*/
+	cursor: pointer;
+	/*float: left;*/
+	/*font-weight: bold;*/
+	/*margin: 0 0 0 100px;*/
+	/*padding: 0 0 0 20px;*/
+}
+/*------------------------------*/
+
+
+/* =ALING  ------------------------------------*/
+.alignleft, img.alignleft {
+    display: inline;
+    float: left;
+    margin-right: 19px;
+}
+.alignright, img.alignright {
+    display: inline;
+    float: right;
+    margin-left: 19px;
+}
+.aligncenter, img.aligncenter {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+img.alignleft, img.alignright, img.aligncenter { margin-bottom: 12px; }
+/*------------------------------*/
+
+
+
+/* =HEADER  ------------------------------------*/
+.site-header {
+	background: url("../images/coch000.png") no-repeat scroll center top #e5e6e8;
+	padding-top: 30px;
+	height:105px;
+	/*height:133px;*/
+}
+.site-header .container { height:105px; }
+.site-header hgroup { height: 50px; width: 100%; }
+.site-header h3 {
+	background:url("../images/coch01.png") no-repeat scroll 0 0 transparent;
+	height: 50px;
+	width: 199px;
+	display: block;
+	font-size: 0;
+	overflow: hidden;
+	
+}
+.site-header h3 a {
+	height: 50px;
+	width: 199px;
+	display: block;
+	text-indent: -30000px;
+}
+.site-header h6 {
+	color: #7A808C;
+	font-family: 'fjalla_oneregular';
+	margin: 17px 0 0 20px;
+}
+/* =menu  ---*/
+.main-navigation {
+	background: url("../images/coch02.png") no-repeat scroll 0 0 transparent;
+	clear: both;
+	margin-left: -11px;
+	margin-top: 20px;
+	padding: 0 11px;
+	/*height: 63px;*/ height: 35px; width: 980px;
+	overflow: hidden;
+}
+.main-navigation ul.nav-menu {
+	display: inline-block;
+	margin: 0;
+	padding: 5px 0 0;
+	text-align: left;
+	text-indent: 0;
+	width: 100%;
+}
+.main-navigation ul li.menu-item {}
+.main-navigation ul li.menu-item,
+.main-navigation ul li.menu-item a {
+	display: inline-block;
+	text-decoration: none;
+	position: relative; left:0; top: 0;
+}
+.main-navigation ul li.menu-item a span.linea {
+	display: block;
+	position: absolute; left: 50%; bottom: 0;
+	height: 1px; width: 125px;
+	margin-left: -63px;
+	background-color: #6C3F44;
+}
+.main-navigation ul li.hover a span.linea,
+.main-navigation ul li.activo a span.linea { background-color: #B81F3A; }
+.main-navigation ul.nav-menu .menu-item1 {
+-webkit-border-top-left-radius: 10px;
+-moz-border-radius-topleft: 10px;
+border-top-left-radius: 10px; }
+.main-navigation ul.nav-menu .menu-item5 {
+-webkit-border-top-right-radius: 10px;
+-moz-border-radius-topright: 10px;
+border-top-right-radius: 10px; }
+.main-navigation ul ul li a img { display:block; }
+.main-navigation ul ul li a small { display:block; font: 12px/1.2em 'CalibriRegular'; }
+.main-navigation ul ul li a span { font: 16px/1.2em 'fjalla_oneregular'; }
+
+/* =seccion menu  ---*/
+.section-navigation {
+	background: url("../images/coch000.png") no-repeat scroll center -135px #e5e6e8;
+	clear: both;
+	height: 28px; width: 100%;
+}
+.section-navigation .container {
+	background: url("../images/coch09.png") repeat-y scroll center top transparent;
+	height: 28px;
+	padding: 0 30px;
+	/*-webkit-box-shadow: inset 0px 5px 10px -5px #bbbbbb;*/
+        /*box-shadow: inset 0px 5px 10px -5px #bbbbbb;*/
+}
+.nav-menu-seccion {
+	display: inline-block;
+	margin: 0;
+	text-align: left;
+	text-indent: 0;
+	width: 650px;
+}
+ul.nav-menu-seccion li,
+ul.nav-menu-seccion li a {
+	display: inline-block;
+	text-decoration: none;
+}
+ul.nav-menu-seccion li {
+	float: left;
+	position: relative;
+	text-align: center;
+	width: auto;
+}
+ul.nav-menu-seccion li a {
+	padding: 0 1.3rem;
+	color:#405965 !important;
+	font: 14px/2em 'fjalla_oneregular';
+	white-space: nowrap;
+}
+ul.nav-menu-seccion li:hover,
+ul.nav-menu-seccion li.activo { color:#405965 !important; background-color: #ededee;  }
+.section-navigation .link04 { margin-right: 20px; }
+/*------------------------------*/
+
+
+/* =CONTENT  ------------------------------------*/
+.secSlider {
+	height: 386px; width: 100%;
+	background: none repeat scroll 0 0 #c3c4c7;
+	position: relative; top: 0px; left: 0;
+}
+.secSlider #slideshow {
+	height: 386px; width: 1600px;
+	overflow:hidden;
+	position: relative; top: 0px; left: 0;
+}
+.ws_images ul { height: 386px; width: 1600px; }
+.ws_images ul li { height: 386px; width: 1600px !important; float: left; }
+.secSlider .secSliderTop,
+.secSlider .secSliderBottom {
+	height: 18px; width: 100%;
+	position: absolute; left: 0; z-index: 100;
+}
+.secSlider .secSliderTop { height: 17px; margin-bottom: 1px; }
+.secSlider .secSliderTop { background: url("../images/coch12.png") repeat-x scroll 0 0 transparent; top: 0px; }
+.secSlider .secSliderBottom { background: url("../images/coch13.png") repeat-x scroll bottom left transparent; bottom: 0px; }
+.secImgslim .secSliderTop,
+.secImgslim .secSliderBottom { z-index: 1; }
+/**/
+#content {  }
+.secContent { width: 100%; float: left; }
+/*.main { width:100%; }*/
+.main {
+	width:910px;
+	padding: 20px 35px 40px;
+}
+.secConTop, .secConMid { float: left; width: 100%; }
+.secConTop { background: url("../images/coch07.png") repeat scroll 0 0 transparent; }
+.secConMid { background: url("../images/coch09.png") repeat-y scroll center top transparent; }
+.secConMid .main { background: none no-repeat scroll 0 0 #f1f2f2; }
+section li { list-style: disc inside none; }
+/**/
+.gris { color:#BCCBD3; }
+.azul { color:#00234F; }
+.rojo { color:#B71F38; }
+.rojodark { color:#9B1B36; }
+.bgrojo, .bgazul, .bgblanco {
+	opacity:0.8; filter: alpha(opacity=80);
+	padding: 12px 20px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+.bgrojo { background-color:#B71F38; }
+.bgazul { background-color:#001841; }
+.bgblanco { background-color:#FFFFFF; }
+.shadow {
+	text-shadow: 0px 0px 6px #333333;
+        filter: dropshadow(color=#333333, offx=0, offy=0);
+}
+/* Botones --------------- */
+.link01 {
+	background: url("../images/coch03.png") no-repeat scroll 0 0 transparent;
+	border:medium none;
+	height: 24px; width: 83px;
+	text-align: center;
+	color:#FFFFFF;
+	font: 13px/1.8em 'CalibriRegular',sans-serif;
+	display: table-cell;
+	vertical-align: middle;
+	padding: 0;
+}
+.link01:hover { background: url("../images/coch03.png") no-repeat scroll 0 -24px transparent; }
+.link02 {
+	color:#B71F38;
+	font: 11px/1.2em 'fjalla_oneregular',sans-serif;
+}
+.link02:hover { color:#C43041; }
+.link03 {
+	background: url("../images/coch04.png") no-repeat scroll 0 0 transparent;
+	border:medium none;
+	height: 23px; width: 264px;
+	text-align: center;
+	color:#FFFFFF;
+	font: 13px/1.8em 'CalibriRegular',sans-serif;
+	display: table-cell;
+	vertical-align: middle;
+	padding: 0;
+}
+.link03:hover { background: url("../images/coch04.png") no-repeat scroll 0 -23px transparent; }
+.link04 {
+	color:#193966;
+	font: 14px/2em 'fjalla_oneregular',sans-serif;
+}
+.link04:hover { color:#0d4473; }
+/*------------------------------*/
+
+
+/* =HOME  ------------------------------------*/
+.secHSlider .container {
+	height: 386px; width: 1600px;
+	position: absolute; top: 0px; left: 50%;
+	overflow:hidden;
+	margin-left: -800px;
+}
+#wowslider-container1 .ws-title h1 { line-height: 1em; }
+#wowslider-container1 .ws-title h2 { line-height: 1.1em; }
+#wowslider-container1 .wows0 h2 { margin-top: 170px; }
+#wowslider-container1 .wows0 h5 { margin-top: 10px; }
+#wowslider-container1 .wows1 h1 { position: absolute; left: 0; bottom: 20px; }
+#wowslider-container1 .wows1 h5 { position: absolute; right: 0; bottom: 20px; }
+#wowslider-container1 .wows2 h1 { margin-top: 43px; }
+#wowslider-container1 .wows2 h3 { font-size: 30px; margin-top: 8px; }
+#wowslider-container1 .wows2 h5 { margin-top: 68px; opacity: 0.7; filter: alpha(opacity=70); }
+#wowslider-container1 .wows3 h3 {
+	position: absolute; left: 340px; bottom: 35px;
+	width: 300px;
+	text-align: center;
+	font-size: 36px; }
+#wowslider-container1 .wows3 h3 small {
+	display: block;
+	font-size: 31px;
+	line-height: 29px; }
+/**/
+.secHContent { height: 200px; background: url("../images/coch09.png") repeat-y scroll center top transparent; }
+.secHContent #content { height: 200px; overflow:hidden; }
+.secHContent .container { height: 200px; }
+.secHContent .main { padding:0; height: 200px; width: 680px; }
+.secHContent .main .mainTxt {
+	height: 200px; width: 375px;
+	padding: 0 0 0 25px;
+}
+.secHContent .main .mainTxt h6 { color: #005F81; font-family: 'fjalla_oneregular'; margin: 20px 0 3px; }
+.secHContent .main .mainTxt h3 { color: #FFFFFF; font-family: 'fjalla_oneregular'; margin-bottom: 10px; }
+.secHContent .main .mainTxt h3 span { color: #003767; }
+.secHContent .main .mainTxt p { color: #FFFFFF; font: 13px/1.2em 'CalibriRegular',sans-serif; margin-bottom:10px; width: 345px; }
+.secHContent .main .mainTxt a { float: right; margin-right: 25px; }
+.secHContent .sidebar {
+	padding: 0 15px 0;
+	height: 200px; width: 270px;
+	text-align: center;
+	background: none repeat scroll 0 0 #79808d;
+}
+.secHContent .sidebar h5 { font-family: 'fjalla_oneregular'; margin: 17px 0 1px; }
+.secHContent .sidebar h4 { color: #FFFFFF; font-family: 'fjalla_oneregular'; margin-bottom: 11px;  }
+.secHContent .sidebar p { color: #FFFFFF; font: 13px/1.2em 'CalibriRegular',sans-serif; opacity: 0.6; filter: alpha(opacity=60); margin-bottom:19px; }
+.secHContent .sidebar .formNewsletter {}
+.secHContent .sidebar .formNewsletter #FN_button { float:right;}
+/*------------------------------*/
+	
+	
+/* =SECTIONS  ------------------------------------*/
+.breadcrumbs { padding-top: 10px; }
+.breadcrumbs h6 {
+	color: #253842;
+	font: 13px/1.2em 'CalibriRegular';
+}
+.breadcrumbs .selected { text-decoration: underline; }
+/**/
+.secCopete {
+	color:#FFFFFF;
+	font: 20px/2.2em 'fjalla_oneregular',sans-serif;
+	margin-right: 30px;
+}
+/**/
+.secProd .secTitulo { font-family: 'fjalla_oneregular'; }
+.secProd .secTitulosub { color: #243842; margin-bottom: 15px; font-family: 'CalibriRegular'; }
+.secProd h6 { color: #49626F; }
+.secProd .items {
+	color: #49626F;
+	font: 13px/1.2em 'CalibriRegular';
+}
+	/* =Productos Presentacion  ------------------------------------*/
+		.secSliderImg {
+			position: absolute; top: 0px; left: 50%;
+			z-index:1;
+			margin-left: -800px;
+			/*height: 386px;*/
+			height: auto;
+			width: 1600px;
+		}
+		.secSliderImgFront {
+			position: absolute; top: 0px; left: 50%;
+			z-index:1;
+			margin-left: -422px;
+			/*height: 386px;*/
+			width: 845px;
+			height: 366px;
+		}
+		/**/
+		.secSecSlider .container {
+			height: 386px;
+			position: relative; top: 0px; left: 0;
+			overflow:hidden;
+			z-index: 5;
+		}
+		.secSecSlider .secTitulo {
+			clear: both;
+			font-family: 'fjalla_oneregular';
+			margin-top: 10px;
+		}
+		.secSecSlider .secTitulo h2 { font-size: 45px; }
+		/**/
+		.secProdPres {
+			padding: 20px 72px 40px;
+			width: 836px;
+		}
+		.secProdPres .grid_2a,
+		.secProdPres .grid_2b { float: left; margin: 0 22px; }
+	/* =Productos Caracteristicas  ------------------------------------*/
+		.secImgslim,
+		.secImgslim #slideshow,
+		.secImgslim .container { height: 150px; overflow: inherit; }
+		.secImgslim #slideshow { background: url("../images/coch10.png") no-repeat scroll center top transparent; }
+		.secImgslim #slideshow img {
+			position: absolute; top: 0px; left: 50%;
+			z-index:1;
+			height: auto;
+			/*width: 980px;
+			margin-left: -490px;*/
+			width: 446px;
+			margin-left: 26px;
+		}
+		.secImgslim .secTitulo {
+			text-align: right;
+			width: 510px;
+		}
+		.secImgslim .secTitulo h3 { font-size: 32px; margin: 8px 0 0; }
+		.secImgslim .secTitulo h6 { font-size: 16px; color: #48626F; }
+		/**/
+		.secProdCarac {}
+		.secProdCarac .secTitulo {
+			font-size: 22px;
+			margin: 15px 0 15px 15px;
+		}
+		.secProdCarac .box {
+			text-align: center;
+			margin-bottom: 20px;
+			margin-left: 0;
+			margin-right: 0;
+			width: 303px;
+		}
+		.secProdCarac .box img { margin: 0 0 10px; }
+		.secProdCarac .box h5 { margin-bottom: 5px; }
+		.secProdCarac .box p {
+			color:#48626F;
+			font: 14px/1.3em 'Calibri';
+			margin: 0 10px;
+			padding: 0 0 15px 0px;
+			/*height: 222px;*/
+		}
+	/* =Productos Ficha Técnica  ------------------------------------*/
+		.secProdFT .secTitulo {
+			font-size: 22px;
+			margin: 15px 0 15px 15px;
+		}
+		.fTecnica { margin: 0 auto; }
+		.fTecnica tr {}
+		.fTecnica tr.even { background-color:#dee1e3; height: 20px; }
+		.fTecnica tr td {
+			color: #48626F;
+			font: 12px/1.2em 'CalibriRegular';
+			vertical-align: middle;
+		}
+		.fTecnica tr td.titulo { font: bold 12px/1.2em 'CalibriRegular'; }
+		.secProdFT img { display: block; margin: 30px auto; }
+/*------------------------------*/
+
+
+/* =FOOTER  ------------------------------------*/
+footer {
+	background: url("../images/coch08.png") no-repeat scroll center top transparent;
+	display: block;
+	text-align: center;
+	height: 300px;
+	color: #456783;
+}
+footer .module { float:left; margin: 0 10px; height: 230px; width: 313px; }
+footer .module01 { margin-right: 0; }
+footer .module02 { }
+footer .module03 { margin-right: 0; }
+footer .module h4 {
+	color: #003767;
+	padding: 27px 0 5px;
+}
+footer .module p { font: 13px/1.2em 'CalibriRegular',sans-serif; margin: 0 0 8px; }
+/*footer .module a { color: #9C1C35; }*/
+footer .module img { display: block; margin: 24px auto 0; }
+footer .module label { position: absolute; left: 30px; top: 8px; }
+footer .module textarea { height:31px; }
+footer .module .fc_txt { background: none repeat scroll 0 0 #babfc5; }
+footer .module03 .link03 { margin: 0 auto; }
+footer .moduleFull { clear: both; }
+footer .moduleFull p { font: 10px/1.7em Helvetica, Arial, sans-serif; }
+footer .moduleFull a { color: #9C1C35; }
+/*------------------------------*/
+
+
+/* =HACKS  ------------------------------------*/
+	/*Chrome*/
+	@media screen and (-webkit-min-device-pixel-ratio:0) {
+		footer .module img { margin: 28px auto 0; }
+	}
+/*------------------------------*/
+
+
+
+#loading-item {
+	position: fixed;
+	width: 52px;
+	height: 52px;
+	border-radius: 10px;
+	left: 50%;
+	top: 50%;
+	margin-left: -26px;
+	margin-top: -26px;
+	background-color: #5A5A5A;
+	background-image: url('../img/loading-list.gif');
+	background-repeat: no-repeat;
+	background-position: center center;
+	z-index: 100000;
+}
+h6.secDescripcion:first-line {
+	color: #243842;
+	font-family: 'CalibriRegular';
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 1.2em;
+}
+.video-prod {
+	clear: both;
+	margin-left: 20px;
+	width: 848px;
+	padding-top: 20px;
+}
+.video-prod .vp-iframe {
+	float: left;
+	width: 640px;
+	height: 360px;
+}
+.video-prod .vp-iframe iframe {
+	width: 640px;
+	height: 360px;
+}
+.video-prod .vp-description {
+	float: right;
+	width: 178px;
+}
+.image-grid {}
+.image-grid a.picture {
+	display: block;
+	float: left;
+	width: 289px;
+	height: 193px;
+	position: relative;
+	box-shadow: 0px 0px 15px -5px #000000;
+	margin: 8px 7px;
+}
+.image-grid a.picture .description {
+	position: absolute;
+	width: 289px;
+	height: 193px;
+	top: 0px;
+	left: 0px;
+}
+.image-grid a.picture .description { display: none; }
+.image-grid a.picture:hover .description { display: block; }
+.image-grid a.picture .description .background {
+	background-color: #000;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	position: absolute;
+	width: 289px;
+	height: 193px;
+	top: 0px;
+	left: 0px;
+}
+.image-grid a.picture .description .icon {
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 35px;
+	height: 34px;
+	background-image: url(../images/lupa.png);
+	margin-left: -17px;
+	margin-top: -17px;
+}
+.image-grid a.picture .description .text {
+	font-size: 14px;
+	color: #FFFFFF;
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	width: 269px;
+	text-align: center;
+	line-height: 18px;
+}
+.image-grid img.la-imagen {
+	width: 289px;
+	height: 193px;
+	display: inline-block;
+	border: none;
+}
+.p-descargas {
+	
+}
+.p-descargas .item {
+	display: block;
+	float: left;
+	background-image: url(../images/download_icon.png);
+	background-repeat: no-repeat;
+	padding-left: 176px;
+	min-height: 131px;
+}
+.p-descargas .item .pi-title {
+	background-image: url(../images/download_item.png);
+	background-repeat: no-repeat;
+	height: 15px;
+	padding-left: 24px;
+	display: block;
+}
+.p-descargas .item .pi-title .FjO {
+	font-size: 18px;
+	color: #003767;
+}
+.p-descargas .item .pi-desc {
+	font-size: 14px;
+	color: #48626F;
+	padding-top: 10px;
+	display: block;
+}
+.secImgslim #slideshow.novedades {
+	background-image: url(../images/fondo_novedades.png);
+	height: 206px;
+	position: relative;
+}
+.secImgslim #slideshow.novedades.contacto { background-image: url(../images/fondo_contacto.png); }
+.secImgslim #slideshow.novedades.xq_coch { background-image: url(../images/por_que_coch.png); }
+.secImgslim #slideshow.novedades.coch_mundo { background-image: url(../images/coch_mundo.png); }
+
+.secSlider.secImgslim.novedades { height: 206px; }
+.secImgslim #slideshow.novedades h1 {
+	margin: 0px;
+	position: absolute;
+	font-size: 36px;
+	color: #FFF;
+	bottom: 20px;
+	left: 50%;
+	margin-left: -490px;
+	background-color: #003B4E;
+	background-color: rgba(0, 59, 78, 0.7);
+	height: 62px;
+	line-height: 62px;
+	width: 314px;
+	text-align: center;
+	border-radius: 10px;
+}
+.secImgslim #slideshow.novedades.contacto h1 {
+	background-color: #716260;
+	background-color: rgba(113, 98, 96, 0.7);
+}
+.secImgslim #slideshow.novedades.xq_coch h1 {
+	background-color: #4B2C40;
+	background-color: rgba(75, 44, 64, 0.7);
+}
+.secImgslim #slideshow.novedades.coch_mundo h1 {
+	background-color: #003D4F;
+	background-color: rgba(0, 61, 79, 0.7);
+}
+.nv-desc {
+	font-size: 15px;
+	color: #567483;
+	line-height: 18px;
+}
+article.lista-novedades {
+	float: left;
+	width: 413px;
+	text-align: center;
+	margin: 10px;
+}
+article.lista-novedades a {
+	display: block;
+	padding: 20px;
+	padding-bottom: 19px;
+	border-bottom: 1px solid #9e9a9b;
+}
+
+article.lista-novedades img {
+	display: inline-block;
+	width: 373px;
+}
+article.lista-novedades time {
+	display: block;
+	padding-top: 15px;
+	color: #193965;
+	font-size: 14px;
+	padding-bottom: 15px;
+}
+article.lista-novedades h1 {
+	font-size: 28px;
+	color: #9B1B36;
+	margin: 0px;
+}
+article.lista-novedades .descripcion {
+	font-size: 14px;
+	color: #567483;
+	margin-top: 20px;
+	line-height: 18px;
+}
+article.lista-novedades span.leer-mas {
+	color: #193965;
+	margin-top: 15px;
+	text-align: right;
+	display: block;
+}
+article.lista-novedades a:hover {
+	background-color: #FFF;
+	border-bottom-color: #FFF;
+}
+.volver-a-noticias {
+	display: block;
+	color: #183A66;
+	font-size: 13px;
+	width: 200px;
+	text-align: left;
+	margin-left: 82px;
+	margin-bottom: 10px;
+	margin-right: auto;
+}
+article.lista-novedades.novedad-principal {
+	display: block;
+	float: none;
+	margin: 0px;
+	width: 747px;
+	background-color: #FFF;
+	margin-left: auto;
+	margin-right: auto;
+}
+article.lista-novedades.novedad-principal img.main {
+	width: 636px;
+	margin: 0px;
+	padding: 0px;
+}
+article.lista-novedades.novedad-principal time {
+	padding-top: 25px;
+	font-size: 17px;
+}
+article.lista-novedades.novedad-principal h1 {
+	font-size: 48px;
+	margin-bottom: 31px;
+}
+article.lista-novedades.novedad-principal .descripcion {
+	width: 636px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 30px;
+}
+article.lista-novedades.novedad-principal .descripcion p {
+	margin-top: 0px;
+	margin-bottom: 1em;
+}
+.paging-novedades {
+	clear: both;
+	margin-top: 30px;
+	text-align: center;
+	font-size: 13px;
+	color: #577582;
+}
+.paging-novedades a {
+	color: #577582;
+	display: inline-block;
+	margin: 0px 3px;
+}
+.paging-novedades .current {
+	color: #9A1B38;
+	display: inline-block;
+	margin: 0px 3px;
+}
+.paging-novedades .disabled {
+	color: #97B5C2;
+	display: inline-block;
+	margin: 0px 3px;
+}
+.m-contacto {
+	text-align: center;
+	margin-top: 20px;
+}
+.m-contacto span.pais {
+	display: inline-block;
+	text-align: center;
+	width: 151px;
+	height: 290px;
+	color: #567483;
+	font-size: 12px;
+	background-image: url(../images/contacto_argentina.png);
+	background-position: 0px 20px;
+	background-repeat: no-repeat;
+	margin-left: 16px;
+	margin-right: 16px;
+}
+.m-contacto span.pais.brasil { background-image: url(../images/contacto_brasil.png); }
+.m-contacto span.pais.estados_unidos { background-image: url(../images/contacto_eeuu.png); }
+.m-contacto span.FjO {
+	display: block;
+	font-size: 14px;
+}
+.m-contacto span.telefono {
+	display: block;
+	margin-top: 165px;
+	margin-bottom: 5px;
+}
+.m-contacto a.email {
+	color: #567483;
+}
+.m-contacto form {
+	width: 553px;
+	margin: 0px auto;
+	text-align: left;
+	font-size: 15px;
+	color: #567483;
+}
+.m-contacto form h1 {
+	color: #B71E39;
+	font-size: 24px;
+	margin: 0px 0px 10px 0px;
+	
+}
+.m-contacto form div {
+	width: 557px;
+}
+.m-contacto form div.checkboxes {
+	position: static;
+	overflow: visible;
+	text-align: center;
+	margin-top: 20px;
+	width: auto;
+	margin-bottom: 15px;
+}
+.m-contacto form label {
+	display: inline;
+	color: #567483;
+	position: static;
+	float: none;
+	width: auto;
+	font-size: 15px;
+}
+.m-contacto form input {
+	width: auto;
+	padding: 0px;
+	margin: 0px;
+	height: auto;
+	vertical-align: middle;
+	float: none;
+	display: inline-block;
+}
+.m-contacto form div.checkboxes label {
+	display: inline-block;
+	width: 140px;
+	font-weight: bold;
+}
+.m-contacto form div.checkboxes input { margin-right: 6px; }
+.m-contacto form .fc_txt {
+	height: 37px;
+	width: 499px;
+	padding: 0px;
+	background-color: #e4e5e8;
+	margin-bottom: 15px;
+	color: #567483;
+	font-size: 15px;
+	line-height: 37px;
+	padding: 0px 29px;
+}
+.m-contacto form textarea.fc_txt {
+	height: 146px;
+	resize: none;
+	line-height: 20px;
+	padding: 7px 29px;
+}
+.enviar-form {
+	text-align: right;
+}
+.enviar-form button {
+	border: none;
+	background: transparent;
+	font-size: 14px;
+	color: #B71E39;
+	padding: 0px;
+	overflow: visible;
+	cursor: pointer;
+}
+.secHContent .main .mainTxt h3 a {
+	color: #FFF;
+	float: none;
+}
+.custom-page {
+	width: 790px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.custom-page, .custom-page * {
+	font-size: 15px;
+	line-height: 1.2em;
+	color: #567483;
+}
+.custom-page h1 {
+	color: #B71E39;
+	font-size: 29px;
+	margin: 0px 0px 1em 0px;
+	font-family: Fjalla One;
+}
+.custom-page ul,
+.custom-page ol {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding-left: 2em;
+}
+.custom-page ol {
+	list-style-type: decimal;
+}
+.custom-page ol li { list-style-type: decimal; }
+.custom-page ul ul li { list-style-type: circle; }
+.custom-page ul ul ul li { list-style-type: square; }
+
+.custom-page ul ol,
+.custom-page ul ul,
+.custom-page ol ul,
+.custom-page ol ol {
+	margin: 0px;
+}
+.custom-page a {
+	color: #B71E39;
+}
+.custom-page a:hover { color: #D73E59; }
+
+.FjO {
+	font-family: Fjalla One;
+}
+.cp-breadcrumbs {
+	margin-top: -10px;
+	font-size: 13px;
+	color: #253842;
+	margin-bottom: 20px;
+}
+.p-descargas {
+	clear: both;
+	padding-top: 25px;
+}
+.slide-container {
+	position: relative;
+}
+.slide-container .slide-no-hover {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 386px;
+	z-index: 1000;
+	opacity: 0.5;
+	background-color: #FFF;
+}
+
+
+.p-descargas {
+	clear: both;
+	padding-top: 25px;
+}
+
+
+div.clear-features {
+	clear: both;
+	height: 35px;
+	background-image: url(../img/linea_carac.png);
+	background-repeat: repeat-x;
+	background-position: 6px center;
+}
