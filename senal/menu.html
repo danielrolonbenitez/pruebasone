@@ -1,0 +1,27 @@
+<ion-side-menus>
+   <ion-side-menu-content>
+    <ion-nav-bar class="bar bar-header header">
+    <button class="button button-clear icon ion-navicon" style='z-index:100!important' ng-click='toggleLeft()'></button>
+      <h1 class="title logo"><a ui-sref="app.noticias"><img src="img/logo.png" alt=""></a></h1>
+    </ion-nav-bar>
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" ng-click="toggleLeft()">
+      </button> 
+    </ion-nav-buttons>
+    <ion-nav-view name="menuContent" overflow-scroll="true"></ion-nav-view>
+  </ion-side-menu-content>
+  <ion-side-menu side="left" width='75' class='mmenu'>
+      <ion-list>
+        <ion-item menu-close class="menuItem" ui-sref="app.noticias"><img src="img/n_icon.png" alt="" width="78px" height="78px"> noticias</ion-item>
+        <ion-item menu-close class="menuItem" ui-sref="app.revistas"><img src="img/r_icon.png" alt="" width="72px" height="78px"> revistas</ion-item>
+        <ion-item menu-close class="menuItem" ng-click="shareViaTwitter('Estoy utilizando la App de Revista Señal Internacional','img/logo.png','platformUrl')"><img src="img/t_icon.png" alt="" width="72px" height="78px"> twitter</ion-item>
+        <ion-item menu-close class="menuItem" ng-click="shareViaFacebook('Estoy utilizando la App de Revista Señal Internacional','img/logo.png','platformUrl')"><img src="img/f_icon.png" alt="" width="65px" height="78px"> facebook</ion-item>
+        <ion-item menu-close class="menuItem" ng-click="shareViaEmail('Hola!<br>Estoy utilizando la App de Revista Señal Internacional','platformUrl')" ><img src="img/mail_icon.png" alt="" width="89" height="85"> email</ion-item>
+        <ion-item menu-close class="menuItem" ng-click='scanBarcode()'><img src="img/q_icon.png" alt="" width="80px" height="89px"> lector qr</ion-item>
+      </ion-list>
+  </ion-side-menu>
+ 
+
+</ion-side-menus> 
+
+

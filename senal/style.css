@@ -1,0 +1,106 @@
+/* Empty. Add your own CSS if you like */
+/*.view-container{height: 100%;} */
+
+body, .ionic-body {
+-webkit-font-smoothing: antialiased;
+color: #000;
+font-size: 14px;
+font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+line-height: 20px;
+}
+
+/*Disabling platform specific tweaks */
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header
+{
+  height: 44px !important;
+}
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader)
+{
+  height: 44px !important;
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader).item-input-inset .item-input-wrapper
+{
+  margin-top: 0px !important;
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) > *
+{
+  margin-top: 0px !important;
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .tabs-top > .tabs, .platform-ios.platform-cordova:not(.fullscreen) .tabs.tabs-top
+{
+  top: 44px !important;
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .has-header, .platform-ios.platform-cordova:not(.fullscreen) .bar-subheader
+{
+  top: 44px !important;
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .has-subheader {
+  top: 88px !important;
+}
+
+figure{width: 100%; float: left;}
+figure img{width: 100%; height: auto;}
+
+body{background-color: #fff;}
+
+.header{background: url(../img/header_gradient_bkg.jpg) top left repeat-x; background-size: 2px 200%;}
+.header .title{width: 40%; max-width: 97px; height: 100%; padding: 7px 0; margin: 0 auto; display: table; z-index: 10;}
+.header .title img{width: 100%; height: auto;}
+
+.mmenu{background-color: #cbbddb;}
+.menuItem{width: 75px; min-height: 75px; padding: 60px 10px 5px; margin-bottom: 2px; float: left; display: block; color: #fff; background-color: red; border-radius: 2px; text-align: center; text-transform: uppercase; opacity: .5; }
+.menuItem.selected{opacity: 1;}
+.menuItem img {margin: 0 auto;}
+.menuItem:first-child{background-color: #a21c26;}
+.menuItem:nth-child(2){background-color: #322b80;}
+.menuItem:nth-child(3){background-color: #bc1e79;}
+.menuItem:nth-child(4){background-color: #1ebc61;}
+.menuItem:nth-child(5){background-color: #F39200;}
+.menuItem:nth-child(6){background-color: #951B81;}
+.item-complex .item-content, 
+.item-radio .item-content {background: none; padding: 0;}
+
+.noticias{width: 100%; padding: 0; float: left; position: relative; background-color: #fff;}
+.noticiaItem{width: 100%; float: left;}
+.noticiaItem figure{position: relative;}
+.noticiaItem figcaption{padding: 0 20px 5px;}
+.noticiaItem h2{font-size: 18px; line-height: 20px;}
+.noticiaItem .categoria{font-size: 14px; line-height: 16px; position: absolute; top: 0; left: 17px; padding: 5px 10px; text-transform: uppercase; color: #fff;}
+.noticiaItem .categoria.verde{background-color: #1ebc61;}
+.noticiaItem .categoria.morado{background-color: #bc1e79;}
+.noticiaItem .categoria.azul{background-color: #0076da;}
+
+.banner{position: absolute; top: 0; left: 0; width: 100%; overflow: hidden;}
+.banner:before{content: ''; width: 100%; height: 80px; position: absolute; bottom: 0; left: 0; background: url(../img/banner_gradient.png) top left repeat-x; background-size: 2px 100%; z-index: 1;}
+
+.noticias.detalle{padding: 0 10px;}
+.noticias.detalle .content{width: 100%; float: left; padding: 10px 10px; margin-top: 110px; position: relative; background-color: #fff; background-color: rgba(255,255,255,.8); z-index: 2;}
+.noticias.detalle .content time{font-size: 11px; line-height: 16px; padding-bottom: 15px; display: block;}
+.noticias.detalle .content h2{font-size: 22px; line-height: 24px; padding-bottom: 25px;}
+.noticias.detalle .content p{font-size: 17px; line-height: 18px; padding-bottom: 25px;}
+
+.revistas{width: 100%; padding: 0; float: left; position: relative; background-color: #7db6e5;}
+.revistas .listado{width: 100%; float: left; padding: 1.25% 3.4375% 10px; }
+.revistas .listado li{width: 50%; padding: 3px 0; float: left; margin-bottom: 10px; background-color: #e6f2fd; height:258.28125px;}
+.revistas .listado li:nth-child(odd) a{display: block; padding: 2.666666% 8.05369124% 2.666666% 4.02684562%; border-right: 1px solid #2d3d93; float: left;	}
+.revistas .listado li:nth-child(even) a{display: block; padding: 2.666666% 6.04026844% 2.666666% 6.04026844%; border-left: 1px solid #2d3d93; float: left;	}
+.revistas .listado li img{box-shadow: 2px 2px 10px #000;}
+.revistas .listado li figcaption{padding-top: 5px;}
+.revistas .listado li h3{font-size: 14px; line-height: 16px; color: #000; text-transform: uppercase;}
+.revistas .listado li h3 strong{display: block;}
+
+.revistas .detalle{padding: 1.25% 3.4375% 20px; float: left;}
+.revistas .opciones{padding: 15px 10px; float: right;}
+.revistas .opciones .opcion{width: 30px; height: 30px; margin-left: 5px; float: left; display: block; overflow: hidden; text-indent: -9999px; position: relative;}
+.opcion.descargar:before{content: ''; display: block; position: absolute; top: 50%; left: 50%; margin-top: -10.5px; margin-left: -12.5px; width: 25px; height: 21px; background: url(../img/opciones.png) no-repeat; background-position: 0px 0px; }
+.opcion.twitter:before{content: ''; display: block; position: absolute; top: 50%; left: 50%; margin-top: -10.5px; margin-left: -13px; width: 26px; height: 21px; background: url(../img/opciones.png) no-repeat; background-position: -35px 0px; }
+.opcion.compartir:before{content: ''; display: block; position: absolute; top: 50%; left: 50%; margin-top: -10px; margin-left: -13.5px; width: 27px; height: 20px; background: url(../img/opciones.png) no-repeat; background-position: -71px 0px; }
+.revistas .detalle h3{width: 50%; float: left; font-size: 14px; line-height: 16px; padding: 20px 10px; color: #fff; text-transform: uppercase;}
+.revistas .detalle h3 strong{display: block;}
+.revistas .detalle img{box-shadow: 2px 2px 10px #000;}
+
