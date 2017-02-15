@@ -1,0 +1,9 @@
+{
+    "require": {
+        "slim/slim": "^2.6",
+		"yusukezzz/slim-session-manager": "0.*",
+		"illuminate/filesystem": "4.2.*",
+		"illuminate/database": "4.2.*",
+		"propel/propel": "~2.0@dev"
+    }
+}

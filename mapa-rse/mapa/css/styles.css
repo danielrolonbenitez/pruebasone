@@ -1,0 +1,65 @@
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,300,200);
+
+body {
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	margin: 0;
+	padding: 0 0 50px 0;
+}
+a {
+	color: #25776b;
+	text-decoration: none;
+}
+div#header {
+	height: 79px;
+	line-height: 79px;
+	color: #25776B;
+	background: url(../../img/header_02.png) repeat-x;
+}
+div#header  h1{
+	line-height: 47px;
+	font-weight: 200;
+	margin: 0 35px;
+	font-size: 18px;
+}
+div#header #logo {
+	height: 79px;
+	width: 211px;
+	float: right;
+	background: url(../../img/header_04.png) no-repeat #FFF;
+}
+div#content {
+	width: 800px;
+	margin: auto;
+}
+.form-table {
+	margin: auto;
+}
+div#content input,
+div#content select,
+div#content textarea
+ {
+	width: 500px;
+	padding: 2px;
+}
+
+.wp-list-table {
+	width: 100%;
+}
+.wp-list-table th {
+	background: #25776b;
+	color: #FFF;
+}
+.add-new-h2 {
+	float: right;
+}
+
+#galeria div {
+	display: inline-block;
+	margin: 5px;
+	padding: 2px;
+	bolder: 1px solid #333;
+}
+#galeria div a {
+	display: block;
+	text-align: center;
+}

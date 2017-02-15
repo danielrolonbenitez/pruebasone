@@ -1,0 +1,43 @@
+ENTIDAD;Abr;Calle;Número;Piso;Dto;CP;Ciudad;Provincia;Tel I;Tel II;Fax;Correo;Web Site
+Federación Económica de San Juan - FESJ ;;General San Martín;575 Este;;;5400;San Juan;San Juan;(54) (0264) 421-4540;;(54) (0264) 421-4540;federacioneconomicasj@speedy.com.ar;http://
+Asociación Empresaria de Rosario - AER;;España;848;;;2000;Rosario;Santa Fé;(54) (0341) 425-0690;(54) (0341) 425-0699 // 530-9884 al 117;(54) (0341) 425-0601 Int. 112;info@aer.org.ar;http://www.aer.org.ar
+Confederación Económica de Misiones - CEM ;;Sarmiento;2183;Piso 3º;;3300;Posadas;Misiones;(54) (03752) 433-074;;(54) (03752) 420-829;cem@arnet.com.ar;http://
+Federación Argentina de Asociaciones de Talleres de Reparación de Automotores y Afines - FAATRA;;Montevideo;1060;;;2000;Rosario;Santa Fe;(54) (0341) 440-0388;(54) (0341) 424-5737;(54) (0341) int.15;info@faatra.org.ar;http://www.faatra.org.ar
+Federación Argentina de Cámaras de Farmacias;;Montevideo;496;Piso 7;;1019;Capital Federal;Buenos Aires;(54) (11) 4372-3300;;;secretaria@facaf.org.ar;http://
+Federación de Asociaciones y Cámaras del Comercio Automotor de la República Argentina - FACCARA;;Soler;3909;;;1425;Capital Federal;Buenos Aires;(54) (11) 4827-2700;(54) (11) 4824-2977;(54) (11) 4827-1197;faccara@faccara.org.ar;http://www.faccara.org.ar
+Federación Argentina de Cámaras de Comerciantes en Repuestos del Automotor - FACCERA;;Bernardo de Irigoyen;546;Piso 7º;;1072;Capital Federal;Buenos Aires;(54) (11) 4502-5647;(54) (11) 155-144-8410 (Sr. Fiore);;faccera@house.com.ar;http://www.faccera.org
+Federación Económica del Chaco - FECHACO;;Juan Domingo Perón;111;2º;;3500;Resistencia;Chaco;(54) (03722) 435-536;(54) (03722) 440-070;;gerencia@fechaco.com.ar;http://www.fechaco.com.ar
+Federación de Comercio e Industria de Buenos Aires - FECOBA;;Florida;1;Piso 3º;;1005;Capital Federal;Buenos Aires;(54) (11) 5556-5556;;;info@fecoba.org.ar;http://www.fecoba.org.ar
+Federación de Cámaras de Turismo de la República Argentina - FEDECATUR ;;Avenida General Paz;79;Piso 2º;Of.3 y 4;5000;Córdoba;Córdoba;(54) (0351) 569-7715;(54) (0351) 569-7716;(54) (0351) 425-2025;fedecatur@fedecatur.org;www.fedecatur.org
+Federación Argentina de Jóvenes Empresarios - FEDAJE;;Florida;1;Piso  3º ;;1005;Capital Federal;Buenos Aires;(54) (11) 5556-5548;;(54) (11) 5556-5502/48;info@fedaje.org.ar;http://
+Federación Comercial de la Provincia de Córdoba - FEDECOM;;Catamarca;1230;;;5000;Córdoba;Córdoba;(54) (0351) 453-1919;;(54) (0351) 453-1919;fedecom@fedecom.org.ar; www.fedecom.org.ar
+Federación Económica de Entre Ríos;;25 de Mayo;28;Piso 2;;3100;Paraná;Entre Ríos;(54) (0343) 423-5243;(54) (0343) 431-4146;(54) (0343) 431-2785;federcomunica@infovia.com.ar;http://
+Federación Argentina de Cámaras de Empresas de Control de Plagas Urbanas;;Lima;1693;Piso 5;Oficina 45;1138;Capital Federal;Buenos Aires;(54) (11) 4306-7909;;;fumigadora@ciudad.com.ar;http://
+Federación Económica de Tucumán - FET;;San Martín;427;;;4000;San Miguel de Tucumán;Tucumán;(54) (0381) 422-8833;(54) (0381) 154-436-080 (Cel. Werchow);(54) (0381) 431-1698/fax Werchow (0381) 4311-540;fedetuc@arnet.com.ar;http://www.fet.com.ar
+Federación Empresaria de La Matanza - FEM;;Entre Ríos;3348;;;1754;La Matanza;Buenos Aires;(54) (11) 4441-7116;;(54) (11) no tienen fax;femlamatanza@yahoo.com.ar;http://
+Federación Gremial de Comercio e Industria de Rosario;;Córdoba;1868;;;2000;Rosario;Santa Fé;(54) (0341) 425-7149;(54) (0341) 425-7151;;fegcoi@fecoi.org.ar;http://www.fecoi.org.ar
+Federación de Entidades Empresarias Neuquinas;;Julio A. Roca;451;;;8371;Junín de los Andes;Neuquén;(54) (02972) 492-647;;;camarajunin@smandes.com.ar;http://www.camarajuninandes.com.ar
+Federación de Entidades Empresarias de Río Negro - FEERN;;Avenida San Martín ;1045;;;8360;Choele Choel;Río Negro;(54) (02946) 443-599;(54) (02946) 15-694-857(Secr. Admin.);(54) (02946) 443-599;feern@mymcom.com.ar;http://
+Federación Empresaria, Hotelera, Gastronómica de la República Argentina - FEHGRA;;Larrea;1250;;;1117;Capital Federal;Buenos Aires;(54) (11) 4822-7733;(54) (11) Int. 121;(54) (11) 4822-7807;informes@fehgra.org.ar;http://www.fehgra.org.ar
+Federación Económica de Mendoza - FEM ;;Pedro Molina;471;;;5500;Mendoza;Mendoza;(54) (0261) 429-5245 / 423-0498 / 425-3069;(54) (0261) 429-8401 / 423-0498 / 425-3069;(54) (0261) 423-2519 / 429-5245/8401 int. 13;femza@arlinkbbt.com.ar;http://www.femza.org.ar
+Confederación de Actividades Empresarias Bonaerenses;;Acevedo;48;;;1900;La Plata;Buenos Aires;(54) (0221) 474-1271;;;secretaria@ucip.org.ar;http://www.ucip.org.ar
+Confederación Económica de la Provincia de Buenos Aires;;Calle 50 entre 3 y 4;417;;;1900;La Plata;Buenos Aires;(54) (0221) 483-8171;;(54) (0221) 423-7591;presidencia@cepba.com;http://www.cepba.com
+Federación de Cámaras de Comercio e Industria Zona Norte de la Provincia de Buenos Aires - FENORBA;;Florida;821;;;2700;Pergamino;Buenos Aires;(54) (02477) 430-079/080;;(54) (02477) 430--078;cucei@cucei.com.ar;http://
+Federación de Comercio e Industria de San Nicolás de los Arroyos -FEDCI;;Justo José de Urquiza;32;;;2900;San Nicolas;Buenos Aires;(54) (03461) 424-450;(54) (03461) 425-887;(54) (03461) 430-817;fedci@intercom.com.ar;http://www.fecosin.org.ar
+Federación Económica de la Provincia de Buenos Aires - FEBA;;Calle 56;338;;;1900;La Plata;Buenos Aires;(54) (0223) 489-1548;(54) (0223) 421-3690;;feba@feba.org.ar;http://www.feba.org.ar
+Federación Económica de la Provincia del Sur de la Provincia Bs. As - Cámara Empresarial de Benito Juaréz;;Libertad;221;;;7020;Benito Juarez;Buenos Aires;(54) (02292) 451-497;;;camaraempresariajuarez@juarez-online.com.ar;http://
+Federación Empresaria de La Plata - FELP;;Calle  7 entre 37 y 38;262;;;1900;La Plata;Buenos Aires;(54) (0221) 422-8606;(54) (0221) 15-561-0110;(54) (0221) 489-5648;comintal@ciudad.com.ar;http://
+Confederación de Entidades de Hidrocarburos - CECHA;;Avenida de Mayo;633;piso 2º;of.12;1084;Capital Federal;Buenos Aires;(54) (011) 4342-9394;(54) (011) 4342-9394/4804;;cecha@cecha.org.ar;www.cecha.org.ar
+Federación Argentina de Entidades de Servicios Fúnebres y Afines - FADEDSFYA;;Callao;852;Piso 5;;1023;Capital Federal;Buenos Aires;(54) (11) 4814-4929 al 32;;(54) (11) 4814-4301;;http://www.fadedsfya.com.ar
+Federación Argentina de la Industria del Caucho - FAIC;;Libertad;567;Piso 1º;;1012;Capital Federal;Buenos Aires;(54) (11) 5218-6512;(54) (11) 5218-6514;(54) (11) 5218-6515;faic@faic.org;http://www.faic.org
+Federación Argentina de Supermercados y Autoservicios - FASA;;Viamonte;342;Piso 2º;;1053;Capital Federal;Buenos Aires;(54) (11) 4510-1799;(54) (11) 4510-4471;(54) (11) 4510-1780;socios@fasa.com.ar;http://www.cas.com.ar
+Federación Argentina del Comercio en Artefactos para el Hogar y Afines;;Florida;1;Piso 6;"Dpto 14 ""B""";1005;Capital Federal;Buenos Aires;(54) (11) 4342-3259;(54) (11) 4334-1985;(54) (11) 4342-3259;fedargentinaarthogar@hotmail.com;http://
+Federación Centros Comerciales a Cielo Abierto Cascos Urbanos y Centros Históricos;;Florida;1;Piso 3º;;1005;Capital Federal;Buenos Aires;(54) (11) 5556-5556;;(54) (11) 5556-5502;cieloabierto@came.org.ar;http://
+Federación de Cámaras de Lavaderos de Ropa, Limpierías y Afines de la República Argentina;;Valentín Gomez;3445 - 47;;;1191;Capital Federal;Buenos Aires;(54) (11) 4864 3885;;(54) (11) 4861 8007;fedelara@mail.abaconet.com.ar;http://www.fedelara.org.ar
+Federación de Entidades Empresarias de Informes Comerciales de la República Argentina - FEEICRA;;Sarmiento;776;Piso 1º ;;1041;Capital Federal;Buenos Aires;(54) (11) 4864-2433;;(54) (11) 4864-2433;feeicra@iicsalta.com.ar;http://
+Federación Económica de Catamarca - FEC;;República;1024;;;4700;San Fernando de Catamarca;Catamarca;(54) (03833) 430-275;(54) (03833) 15-653-776 (Cel. Secr. Cecilia Ahumada);(54) (03833) 430-275;secata@cedeconet.com.ar;http://
+Federación Empresaria de Chubut;;Rivadavia;452;;;9000;Comodoro Rivadavia;Chubut;(54) (0297) 446-6500 // 447-0300;;(54) (0297) 452-999;cacomcr@speedy.com.ar;http://
+Federación Argentina de Papelerías, Librerías y Afines - FALPA;;Avenida General Paz;81;Piso 4º;Of.1;5000;Córdoba;Córdoba;(54) (0351) 421-3558;;;calipacer@gmail.com;http://www.calipacer.org.ar
+Federación Empresarial de Corrientes - FECORR;;Avenida Italia;420;Piso 2º;;3400;Corrientes;Corrientes;(54) (03783) 427-123;;;gerenciafecorr@gmail.com;http://www.fecorr.com.ar
+Federación Ecónomica de la Pcia. de Santa Cruz - FESC;;9 de Julio;32;;;9400;Río Gallegos;Santa Cruz;(54) (02966) 420-870;;;ccomriog2@speedy.com.ar;http://
+Federación Económica Fueguina;;Leopoldo Lugones;1781;;;9410;Ushuaia;Tierra del Fuego;(54) (02901) 437-872;;;ushuaiabureau@speedy.com.ar;http://

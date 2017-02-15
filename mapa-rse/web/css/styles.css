@@ -1,0 +1,271 @@
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,300,200);
+
+body {
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	height: 100%; margin: 0; padding: 0;
+}
+html { height: 100% }
+a {
+	color: #25776b;
+	text-decoration: none;
+}
+.cl { clear: both; }
+.right { float: right; }
+div#header {
+	height: 79px;
+	line-height: 79px;
+	color: #25776B;
+	background: url(../../img/header_02.png) repeat-x;
+	position: relative;
+	z-index: 2;
+}
+div#header  h1{
+	line-height: 47px;
+	font-weight: 300;
+	margin: 0 35px;
+	font-size: 22px;
+}
+div#header #logo {
+	height: 79px;
+	width: 211px;
+	float: right;
+	background: url(../../img/header_04.png) no-repeat #FFF;
+}
+#map_canvas {
+	height: 100%;
+	width: 50%;
+	float: left;
+	margin-top: -32px;
+}
+#referencias {
+	position: absolute;
+	left: 1%;
+	bottom: 10px;
+	margin-right: 12px;
+	background: #FFF;
+	z-index: 99;
+	-webkit-box-shadow: 0px 0px 9px 0px rgba(204,204,204,1);
+	-moz-box-shadow: 0px 0px 9px 0px rgba(204,204,204,1);
+	box-shadow: 0px 0px 9px 0px rgba(204,204,204,1);
+}
+#referencias ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#referencias ul li {
+	color: #97C284;
+	font-weight: 400;
+	padding: 8px 15px 5px;
+	border-bottom: 1px solid #CCC;
+}
+#referencias ul li img {
+	margin-right: 15px;
+}
+#datos {
+	width: 50%;
+	float: right;
+}
+#datos > div {
+	padding-left: 20px;
+}
+#datos fieldset {
+margin-bottom: 7px;
+border: 0px none;
+background: #D5E7CE none repeat scroll 0% 0%;
+color: #25776B;
+font-style: italic;
+padding: 10px 10px;
+float: left;
+}
+
+#datosAccion {
+	width: 50%;
+	float: right;
+	display: none;
+}
+#datosAccion > div {
+	padding: 0 20px;
+}
+#datosAccion .right {
+	margin-left: 10px;
+}
+
+#datosAccion h2 {
+	font-weight: 700;
+	font-size: 28px;
+	text-transform: uppercase;
+	margin-bottom: 0;
+}
+#datosAccion h5 {
+	font-weight: 200;
+	font-size: 20px;
+	font-style: italic;
+	margin: 3px 0 30px;
+	padding-bottom: 9px;
+	display: block;
+	border-bottom: 1px solid #C9CACC;
+}
+
+#gallery {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#gallery li {
+	float: left;
+	margin: 6px;
+	padding: 0;
+	display: block;
+	position: relative;
+	width: 481px;
+	border: 2px solid;
+}
+#gallery li a {
+	display: block;
+	position: relative;
+	width: 481px;
+	height: 270px;
+}
+#gallery li a img {
+	display: block;
+	width: 481px;
+	z-index: 1;
+}
+#gallery li a:hover:after {
+	content: '+';
+	font-size: 44px;
+	color: #FFF;
+	font-weight: 700;    
+	text-align: center;
+	width: 481px;;
+	display: block;
+	position: absolute;
+	z-index: 10;
+	background-color: rgba(152,195,133,0.6);
+	top: 0;
+	left: 0;
+}
+#datosAccion.theme_1  h2, #datosAccion.theme_1  .prev, #datosAccion.theme_1  .next{ color: #213A76;}
+#datosAccion.theme_2  h2, #datosAccion.theme_2  .prev, #datosAccion.theme_2  .next{ color: #09762D;}
+#datosAccion.theme_3  h2, #datosAccion.theme_3  .prev, #datosAccion.theme_3  .next{ color: #E33652;}
+
+.theme_1 #gallery li { border-color: #213A76;}
+.theme_2 #gallery li { border-color: #09762D;}
+.theme_3 #gallery li { border: none; }
+.theme_4 #gallery li { border-color: #E6E65C;}
+
+
+
+/*CUADROS MAPA*/
+.infobox {
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+.firstHeading {
+	font-size: 17px;
+	font-weight: 200;
+	margin: 0 0 6px 0;
+	padding-left: 9px;
+	line-height: 22px;
+}
+.infobox .camera {
+	font-size: 17px;
+	font-weight: 200;
+}
+.infobox #bodyContent {
+	color: #666;
+	font-size: 17px;
+	font-weight: 400;
+	font-style: italic;
+	border-bottom: 1px solid #C9CACC;
+	padding-bottom: 10px;
+}
+.infobox #bodyContent a {
+	display: block;
+	text-align: right;
+	margin-right: 10px;
+}
+.theme_1 .firstHeading {
+	background: #213A76;
+	color: #FFF;
+}
+.theme_1 a, .theme_1 .camera {
+	color: #213A76;font-weight: bold;
+}
+.theme_2 .firstHeading {
+	background: #09762D;
+	color: #FFF;
+}
+.theme_2 a, .theme_2 .camera {
+	color: #09762D;font-weight: bold;
+}
+.theme_3 .firstHeading {
+	background: #E33652;
+	color: #FFF;
+}
+.theme_3 a, .theme_3 .camera {
+	color: #E33652;font-weight: bold;
+}
+.theme_1 p, .theme_2 p, .theme_3 p, .theme_4 p {
+	font-size:19px;
+}
+.theme_4 .firstHeading {
+	background: #E6E65C;
+	color: #000;
+}
+.theme_4 a, .theme_4 .camera {
+	color: #000;font-weight: bold;
+}
+/*FIN CUADROS MAPA*/
+
+
+
+#header h1 .sm { display: none; }
+
+@media (max-width: 720px) {
+	#datos, #datosAccion, #map_canvas  {
+		float: none;
+		width: 100%;
+	}
+	#map_canvas  {
+		height: 520px;
+		margin-top: 10px;
+	}
+	
+	#referencias {
+		/*right: 10px;*/
+		top: 10%;
+		bottom: initial;
+	}
+}
+
+@media (max-width: 600px) {
+	#header h1 .hm { display: none; }
+	#header h1 .sm { display: block; }
+}
+
+img.thumb {
+	width: 200px;
+}
+
+
+.color{background:#9bc2e6;
+}
+ .padd{padding-top: 20px;
+ 	   padding-bottom: 20px;
+  }
+ .face{font-family:Verdana, Arial, Helvetica, sans-serif;
+         font-size: 15px;
+   }
+
+ table {
+    border-collapse: collapse;
+}
+
+#grilla{
+	margin-top: 50px;
+}
+
+#grilla table {
+	width: 100%;
+}

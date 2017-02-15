@@ -1,0 +1,1 @@
+<?class permisos{	var $listas;	var $eventos;	var $exportaciones;	var $usuarios;	var $presupuestos;	var $test;		function login()	{	header("location: logout.php");		}		function prohibido()	{		echo "No tiene permiso para esta seccion !.";exit;	}	}?>
