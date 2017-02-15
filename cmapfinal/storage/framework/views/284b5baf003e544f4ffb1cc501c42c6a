@@ -1,0 +1,553 @@
+<?php $__env->startSection('content'); ?>
+
+
+  <div class="row">
+      	<div class="col-lg-8 col-lg-offset-2" style="background:rgba(0,0,0,0.5);padding:50px;color:white;">
+
+
+				  <!--mensaje-->
+								<?php if(Session::has('flash_message')): ?>
+						   			 <div class="alert alert-info">
+						   			 	<button type="button" class="close" data-dismiss="alert">&times;</button>
+						   			 	<?php echo e(Session::get('flash_message')); ?>
+
+
+						   			 </div>
+								<?php endif; ?>
+					
+						<div id="mensaje"></div>
+					<!--end mesanje-->
+
+					
+
+
+
+				<form   class="" role="form"   id="negocioForm" action="<?php echo e(route('negocioEditStore')); ?>" method="POST" enctype="multipart/form-data">
+								
+				<div class="row"> 
+                                             
+									<div class="col-lg-5">
+                                             <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>" />
+                                             <input type="hidden" value="<?php echo $negocios[0]->idNegocio; ?>" name="idNegocio" >
+												<input type="hidden" name="latitud" id="latitud" value="" />
+												<input type="hidden" name="longitud" id="longitud" value="" />
+											 
+
+							
+											    <label for="razonSocial">Razon Social:</label><br>
+											    <input type="text" class="form-control" name="razonSocial" id="razonSocial" value="<?php echo e($negocios[0]->razonSocial); ?>"><br></br>
+											  
+											    <label for="direccion">Direccion:</label><br>
+											    <input type="text" class="form-control" name="direccion" id="direccion" value="<?php echo e($negocios[0]->direccion); ?>"><br>
+										 		
+											    <label for="provincia">Provincia:</label><br>
+											    <select  class="form-control" name="provincia" id="provincia" style="width:196px;">
+												
+
+												<?php foreach($provincias as $provincia){  ?>
+
+														<option value="<?php echo e($provincia->idProvincia); ?>"<?php if($provincia->idProvincia==$negocios[0]->idProvinciaF)echo "selected='selected'"; ?> ><?php echo $provincia->nombre; ?></option>
+													
+
+												<?php }?>
+
+											    </select><br>
+
+
+
+
+
+											    <label for="ciudad">Localidad:</label><br>
+											    <select  class="form-control" name="ciudad" id="ciudad" style="width:196px;">
+													
+												<?php foreach($ciudades as $ciudad){  ?>
+
+														<option value="<?php echo e($ciudad->idCiudad); ?>"<?php if($ciudad->idCiudad==$negocios[0]->idCiudadF)echo "selected='selected'"; ?> ><?php echo $ciudad->nombre; ?></option>
+													
+
+												<?php }?>
+											
+
+												</select><br>
+
+											    
+											
+
+									</div>
+												
+								<div class="form-group col-lg-5 col-lg-offset-1">
+												
+											    <label for="entidad">Camara:</label><br>
+											     <select  class="form-control"  id="entidad" name="entidad" style="width:196px;">
+												
+													<?php if($negocios[0]->idEntidadF==0){echo "<option value='0' selected='selected'>Ninguna</option>";}?>
+											 	  			
+												<?php foreach($enti as $entidad){  ?>
+
+														<option  value="<?php echo $entidad->idEntidad;?>" <?php if($entidad->idEntidad==$negocios[0]->idEntidadF)echo "selected='selected'"; ?>><?php echo $entidad->nombre;?></option>
+													
+
+												<?php }//end for?>
+
+
+											    
+
+
+
+												</select>
+												<input type="checkbox"  id="estado" name="estado"  onclick="cambiarEstado()" <?php if($negocios[0]->estado==1){ echo "value='1'","checked";}else{echo "value='0'";} ?>>Activo<br></br>
+
+
+											    <label for="sitioWeb">Sitio Web:</label><br>
+											    <input type="text" class="form-control" name="sitioWeb" id="sitioWeb" value="<?php echo e($negocios[0]->sitioWeb); ?>"><br>
+											
+
+
+											
+											    <label for="telefono">Telefono:</label><br>
+											    <input type="text" class="form-control" name="telefono" id="telefono" value="<?php echo e($negocios[0]->telefono); ?>"><br>
+
+											 	
+
+
+									</div>
+						
+						</div><br><!--end rows-->
+
+  									<div class="row">
+
+											<div class="col-lg-3">
+													    <label for="rubro">Rubro:</label><br>
+
+													    <!--begin rubro-->
+													    <select  class="form-control"  id="origen" multiple="multiple" style="width:196px;">
+																<?php
+
+															foreach($rubros as $rubro){
+																
+																	echo "<option value='{$rubro->idRubro}'>{$rubro->nombre}</option>";
+																
+
+															}
+
+														?>
+
+													
+
+														</select>
+												</div>
+												<div class="col-lg-4 col-lg-offset-1" style="margin-top:40px;width:190px !important">
+													<input type="button" class="pasar izq btn btn-danger" value="Pasar »"><input type="button" class="quitar der btn btn-danger" value="« Quitar"><br />
+													<input type="button" class="pasartodos izq btn btn-danger" value="Todos »"><input type="button" class="quitartodos der btn btn-danger" value="« Todos">
+												</div>
+
+											<div class="col-lg-4" style="margin-top:25px">   
+												<select name="rubro[]" id="rubro" multiple="multiple" style="width:197px;height:85px">
+												 <?php foreach($rubrosLoad as $rubrol) { ?>
+												 		
+												 		<option value=<?php echo "$rubrol->idRubro"; ?> selected="selected"><?php echo $rubrol->nombre; ?></option>
+
+
+												 		<?php } ?>
+												</select>
+											</div>
+											  
+											  <!--end rubro-->
+
+
+
+
+
+											 
+										
+
+
+									
+
+								</div><br><!--end rows-->
+
+							
+                                
+
+
+
+
+															
+				 <!-- begin mapa -->
+				    
+				<!-- end  mapa -->
+
+						
+					 <div clas="form-group">
+									
+								 <span style="font-weight:bold">Marque Ubicación</span><br>
+				                  <div  id="mapa"   style="width:632px;height:300px;"></div>
+				                  <input id="pac-input" class="controls col-lg-6 col-lg-offset-1" type="text" placeholder="Buscar" style="color:black"/>
+
+
+			
+									 
+
+									
+
+
+
+
+
+
+
+
+
+
+
+
+							
+							
+
+					</div>
+
+
+
+												
+												
+											
+
+												
+
+											  
+											 
+						</form><br></br><!--end form-->
+				
+				
+
+
+
+	                    <!--begin fotos-->
+							  
+									
+								<div class="row">
+									  
+
+									   <div class="col-lg-12" style="background:silver;padding-bottom:20px">
+								      	
+										 <div><h1>Foto Principal</h1></div>
+													 <div class="alert alert-success">
+																<span>Tamaño De Foto Recomendada 139x139 con relación de tamaño 1:1</span>
+
+														</div>
+
+										 <br>
+											<?php
+
+
+													foreach ($fotoPrincipal as  $foto){
+
+												$url=explode('public/',$foto->url); // elimino de la url public/
+                                            
+									
+                                             
+												
+
+											  echo '<div style="float:left;margin-top:2px;margin-left:10px;">';
+												echo "<a href='".route('editarFoto',[$foto->idFoto,$negocios[0]->idNegocio])."' style='color:white;' class='btn btn-sm btn-warning' title='Editar'><i class='glyphicon glyphicon-pencil'></i></a><br>";
+												echo"<img src='".url($url[1])."' style='width:300px;height:200px;'>";
+
+												echo'</div>';
+												
+									
+
+
+												
+
+
+
+												
+											 }?>
+
+
+											
+
+													
+									</div>
+												
+									<br></br>
+
+
+
+
+
+
+
+								      <div class="col-lg-12" style="margin-top:50px;background:silver;padding-bottom:20px" >
+								      	
+								      	<div><span style="font-size:30px;margin-right:30%">Foto Slider</span><a href="<?php echo e(route('addMorePic',$negocios[0]->idNegocio)); ?>" class="btn btn-success">Agregar Mas Fotos Slider</a></div>
+										<div class="alert alert-success">
+															    <span>Tamaño De Foto Recomendada 278x157 con relación de tamaño 16:9</span>
+
+												</div>
+								      	<br>
+											
+
+
+									
+
+
+
+
+
+
+											<?php
+
+
+													foreach ($fotos as  $foto){
+
+												$url=explode('public/',$foto->url); // elimino de la url public/
+                                            
+									
+                                             
+												
+
+											  echo '<div style="float:left;margin-top:2px;margin-left:10px">';
+												echo "<a href='".route('editarFotoSlider',[$foto->idFoto,$negocios[0]->idNegocio])."' style='color:white' class='btn btn-sm btn-warning' title='Editar'><i class='glyphicon glyphicon-pencil'></i></a>";
+												echo "<a href='".route('eliminarFotoNegocio',[$foto->idFoto,$negocios[0]->idNegocio])."' style='color:white'class='btn btn-sm btn-danger' title='Eliminar'><i class='glyphicon glyphicon-remove'></i></a></br>";
+												echo"<img src='".url($url[1])."' style='width:100px;height:100px;'>";
+
+												echo'</div>';
+												
+									
+
+
+												
+
+
+
+												
+											 }?>
+
+
+											
+
+
+									</div>
+							</div>
+
+								<!--end fotos-->
+			
+			<div class="row">
+
+					<div class="col-lg-12" style="margin-top:50px;">		
+						<button  class="btn btn-danger" onclick="enviarForm()"  style="width:100%">Guardar Cambios</button>
+
+					</div>
+			</div>
+		
+
+
+
+
+
+
+	</div>
+</div>
+ <!--end all container--->		
+
+
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('script'); ?>
+
+<!--script-->
+<script src="<?php echo e(URL::asset('js/validaNegocioForm.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('js/editNegocio.js')); ?>"></script>
+<script>
+
+
+
+///////////////////////script google maps///////////////////
+var pridat;
+var map;
+var marker = null;
+var infowindow = null;
+var markers=[];
+
+var lat;
+var lng;
+
+
+
+function initialize() {
+
+
+
+
+ var locc = new google.maps.LatLng(<?php echo $negocios[0]->latitud;?>,<?php echo $negocios[0]->longitud;?>);
+
+ var mapOptions = {
+    zoom: 14,
+    center: locc,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+                  }
+
+map = new google.maps.Map(document.getElementById('mapa'), mapOptions);
+
+
+//carga la latitud y la longitud del negocio y crea un marcador//
+ var m= {lat:<?php echo $negocios[0]->latitud; ?>, lng:<?php echo $negocios[0]->longitud;  ?>};
+ //console.log(m);
+
+ marker= new google.maps.Marker({
+    position: m,
+    map: map,
+    title: 'Hello World!'
+  });
+
+	lat=marker.position.lat();
+ 	lng=marker.position.lng();
+  	getPosition(lat , lng);
+
+
+/**/
+
+
+
+//agrega la la caja de texto 
+// Create the search box and link it to the UI element.
+var input = document.getElementById('pac-input');
+var searchBox = new google.maps.places.SearchBox(input);
+map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+
+
+searchBox.addListener('places_changed', function() {
+    var places = searchBox.getPlaces();
+
+    if (places.length == 0) {
+      return;
+    }
+
+    // Clear out the old markers.
+    markers.forEach(function(marker) {
+      marker.setMap(null);
+    });
+    markers = [];
+
+    // For each place, get the icon, name and location.
+    var bounds = new google.maps.LatLngBounds();
+    places.forEach(function(place) {
+      var icon = {
+        url: place.icon,
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25)
+      };
+
+      // Create a marker for each place.
+      markers.push(new google.maps.Marker({
+        map: map,
+        icon: icon,
+        title: place.name,
+        position: place.geometry.location
+
+
+      }));
+
+      if (place.geometry.viewport) {
+        // Only geocodes have viewport.
+        bounds.union(place.geometry.viewport);
+      } else {
+        bounds.extend(place.geometry.location);
+      }
+    });
+    map.fitBounds(bounds);
+    //console.log(markers[0].position.lat());
+    //obtenog la latitud y longitud del mark;
+
+   lat=markers[0].position.lat();
+   lng=markers[0].position.lng();
+    getPosition(lat , lng);
+
+  });
+
+
+//end caja de texto//
+
+
+
+
+
+ //codigo mark click event ;
+
+var contentwindow = '<div>your point</div>'
+infowindow = new google.maps.InfoWindow({
+    content: contentwindow
+ });
+
+google.maps.event.addListener(map, 'rightclick', function(event) {
+placeMarker(event.latLng);
+});
+
+}
+
+function placeMarker(location) {
+
+
+    // Clear out the old markers.
+    markers.forEach(function(marker) {
+      marker.setMap(null);
+    });
+
+
+
+
+
+if (marker) {//la primera ves entra por falso y crea el marker luego entra por verdadero y mueve la posicion. 
+  marker.setPosition(location);
+  //console.log(marker);
+  lat=marker.position.lat();
+  lng=marker.position.lng();
+  getPosition(lat , lng);
+
+} else {
+ marker = new google.maps.Marker({
+      position: location,
+      map: map,
+      title: 'My point',
+      draggable: false,
+     });
+   // IF I REMOVE THIS PART -> IT WORKS, BUT WITHOUT INFOWINDOW
+   google.maps.event.addListener(marker, 'click', function(){
+       infowindow.open(map, marker);
+   }); //console.log("no");
+
+
+  lat=marker.position.lat();
+  lng=marker.position.lng();
+  getPosition(lat , lng);
+
+ }
+
+
+}//end inicialite
+
+
+ function getPosition(lat , lng){  
+
+  var latitudBox=document.getElementById('latitud').value=lat;
+  var longitudBox=document.getElementById('longitud').value=lng;
+  console.log(latitudBox);
+  
+
+  }
+
+
+$(document).on('ready',initialize());
+//google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

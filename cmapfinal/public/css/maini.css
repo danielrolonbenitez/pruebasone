@@ -1,0 +1,97 @@
+.loginForm{
+	
+padding:10px;
+background:#EEE;
+
+}
+
+
+
+
+.setInput{margin:0px !important; width: 160px!important; height: 30px!important;float: left;padding: 0px 0px 0px 30px !important}
+.setSubmit{width:100px!important;float: left;height: 30px!important;}
+ select{padding: 0px 0px 0px 65px !important}
+
+
+
+
+body { font-family: 'Roboto' !important; overflow-x:hidden !important; }
+
+
+
+
+
+.btn-circle {
+  border-radius: 100px;
+}
+
+
+.img-hover{
+
+cursor: pointer;
+
+}
+
+
+div.cc img+.showww {
+    display:none;
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+    color: white;
+    background:rgba(0,0,0,0.7);
+    width: 100%;
+    height: 100%;
+    margin-left: 5px;
+    font-size: 20px;
+    text-align: center;
+}
+
+ div.cc:hover img+.showww {
+  display:block;
+ }  
+
+.title-data{
+background:rgba(255,0,0,0.7);
+white-space: pre-wrap;
+}
+
+.title-content{
+  font-size: 15px !important;
+  white-space: pre-wrap; 
+}
+
+.margin{
+margin-top:20px;
+}
+
+
+ .sumate{
+      border:2px solid white;
+      border-style: dashed; 
+      width: 150px;
+        text-align: center;
+        padding: 5px;
+            font-weight: bold;
+            margin-top: 10px;
+            cursor:pointer;
+      color:white;
+     }
+
+         .sumate:hover
+         {
+      border:2px solid #c9302c;
+      border-style: dashed; 
+            color:#c9302c !important;
+
+         }
+
+
+/*negocioForm{
+	
+padding:10px;
+background:#EEE;
+width: 800px;
+margin-left: 20% !important;
+
+}*/

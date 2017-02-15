@@ -1,0 +1,34 @@
+<?php $__env->startSection('content'); ?>
+
+
+<div class="row">
+
+	 <div class="col-lg-offset-4">	
+			
+
+				<form class='cargarFoto' action='<?php echo e(route('addMorePicStore')); ?>'   method='post' enctype='multipart/form-data'>
+				<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>" />
+				<input type="hidden" name="idNegocio" value="<?php echo e($idNegocio); ?>" />
+				<input type="file" name="fotos[]" id="foto" multiple/><br>
+				<button class="btn bntdefault"  onclick="history.back()">Regresar</button>
+				<input type="submit" class="btn btn-danger" value="Agregar" id="editar" style="width:100px" disabled/>
+
+				</form>
+
+
+		</div>
+
+</div>
+
+<script>
+$('#foto').on('change',function(){
+	$('#editar').prop("disabled", false);
+});
+//onclick="history.back()"
+</script>
+
+
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

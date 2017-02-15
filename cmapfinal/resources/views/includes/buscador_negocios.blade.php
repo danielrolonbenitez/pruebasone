@@ -1,0 +1,79 @@
+<form action="{{ route('dataHome')}}" style="margin-left:10%" method="post" id="formShearch">
+
+				<input type="hidden" name="_token" value="{{ csrf_token() }}" />
+
+
+
+                  <select class="setInput provincias"  id="provincia" name="provincia">
+
+                  	<option id="removeP">Provincia</option>
+                    <option value="0">Todas Las Provincias</option>
+					<?php
+
+					     foreach ($provincias as $provincia) {
+
+					     echo "<option value='{$provincia->idProvincia}'>".$provincia->nombre."</option>";
+
+
+
+					     }
+
+					 ?>
+
+
+
+
+
+
+
+                  </select>
+
+
+
+                  <select  class="setInput ciudad"  id="ciudad" name="ciudad">
+
+                  	 <option value="localidad">Localidad</option>
+
+                  </select>
+
+
+
+                  <select class="setInput rubro" name="rubro" id="rubro" name="rubro">
+
+                  	<option id="removeR">Rubro</option>
+
+                  	<?php
+
+					     foreach ($rubros as $rubro) {
+
+					     echo "<option value='{$rubro->idRubro}'>".$rubro->nombre."</option>";
+
+
+
+					     }
+
+					 ?>
+
+
+
+                  </select>
+
+				  <input class="setInput camara" style="height:30px !important " type="text" id="camara" name="camara" value="" placeholder="Camara"/>
+                  <input class="setInput" style="height:30px !important" type="text" id="clave" name="clave" value="" placeholder="Palabra Clave"/>
+
+
+
+
+
+				  <input type="submit" class="btn btn-danger setSubmit" value="Buscar" />
+
+
+
+
+
+
+
+
+
+			</form>
+

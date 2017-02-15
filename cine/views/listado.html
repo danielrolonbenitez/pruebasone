@@ -1,0 +1,28 @@
+
+		<ul class="filmList"  >
+			<li class="item" ng-repeat="peliculas in listadoPeliculas">
+				<a ui-sref="detalle({id: peliculas.id})">
+					<img src="{{peliculas.picture}}" alt="">
+					<div>
+						<h3>{{peliculas.title}}</h3>
+						<p>{{peliculas.description}}</p>
+					</div>
+				</a>
+			</li>
+			
+		</ul>
+
+
+<!--
+
+	<a ui-ref="estado({parametro:valor})";
+
+	('estado'. {
+		url:'/detalle/:parametro'
+	});
+
+	**********
+
+	$state.go('estado', ({parametro:valor}))
+
+-->

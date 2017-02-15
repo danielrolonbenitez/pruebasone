@@ -1,0 +1,58 @@
+
+  $('select.provincias').on('change',function(){
+   var valor = $(this).val();
+   $('#removeP').remove();
+
+   //alert(valor);
+//});
+ 
+
+
+       var parametros = {
+               "valor" : valor,
+                
+        };
+        $.ajax({
+                data:  parametros,
+                url:   'ajaxCiudad',
+                type:  'get',
+               beforeSend: function () {
+                        $('.ciudad').append('<option  selected="selected">cargando...</option>');
+                },
+                success:  function (response) {
+                  $('.ciudad').find('option').remove().end();//elimina los option que se cargan por default;
+
+                  console.log(response);
+
+                 //$("#resultado").html(response);
+                  //host=window.location+'/'+response;
+
+
+                 //alert(host);
+
+               //window.location=host;
+               $('.ciudad').append('<option selected="selected" value="0">Todas Las Ciudades</option>');
+               var cant=response.length;//obtengo la cantidad
+               var i;
+
+                for(i=0;i<cant;i++){
+
+
+                  $('.ciudad').append('<option value="'+response[i]['idCiudad']+'" >'+response[i]['nombre']+'</option>');
+
+               //console.log(cant);
+               //console.log(response[0]['idCiudad']);
+
+                }
+
+
+
+
+
+                }
+        });
+
+
+
+});//cierra funcion principal
+
