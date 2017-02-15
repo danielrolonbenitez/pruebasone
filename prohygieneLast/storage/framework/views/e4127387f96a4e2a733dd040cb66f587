@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+		<title>Blog Prohygiene</title>
+		<link rel="stylesheet" href="<?php echo e(URL::asset('css/bootstrap.css')); ?>"/>
+		<link rel="stylesheet" href="<?php echo e(URL::asset('css/jquery-ui.css')); ?>"/>
+		<?php echo $__env->yieldContent('css'); ?>
+</head>
+
+<body>
+
+<?php echo $__env->yieldContent('content'); ?>
+
+<!--begin script -->
+ <script src="<?php echo e(URL::asset('js/jquery.min.js')); ?>"></script>
+ <script src="<?php echo e(URL::asset('js/bootstrap.js')); ?>"></script>
+ <?php echo $__env->yieldContent('script'); ?>
+
+<!--end script-->
+
+
+</body>
+
+</html>

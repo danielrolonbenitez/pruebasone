@@ -1,0 +1,100 @@
+<?php $__env->startSection('content'); ?>
+
+
+
+
+<!--Mensaje -->
+				<?php if(count($errors) > 0): ?>
+												    <div class="alert alert-danger">
+												    <button type="button" class="close" data-dismiss="alert">&times;</button>
+												        <ul>
+
+
+												            <?php foreach($errors->all() as $error): ?>
+												                <li><?php echo e($error); ?></li>
+												            <?php endforeach; ?>
+												        </ul>
+												    </div>
+													<?php endif; ?>
+
+
+
+
+			<?php if(Session::has('flash_message')): ?>
+						   			 <div class="alert alert-info">
+						   			 	<button type="button" class="close" data-dismiss="alert">&times;</button>
+						   			 	<?php echo e(Session::get('flash_message')); ?>
+
+
+						   			 </div>
+								<?php endif; ?>
+			
+<!--Mensaje-->
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+         
+         <div class="col-lg-offset-4 col-lg-12"><h3>EDITAR PERIODO</h3></div>
+
+       <div class="col-lg-offset-2 col-lg-6">
+
+          <form action="<?php echo e(route('periodoEdit')); ?>" method="post">
+          	   <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>" />
+               <input type="hidden" name="id" value="<?php echo e($periodo[0]->idPeriodo); ?>" />
+               
+               <label for="nombre">Nombre Periodo</label>
+               <input type="text" class="form-control" name="nombrePeriodo" placeholder="ejemplo Periodo 1" value="<?php echo e($periodo[0]->periodoNombre); ?>"><br>
+
+                <label for="">Destinado</label>
+                <select  class="form-control"  name="destinado" >
+                <?php foreach($destinatarios as $destinatario): ?>
+                    <option value="<?php echo e($destinatario->nombre); ?>" <?php echo $des=($periodo[0]->destinado==$destinatario->nombre)?"selected='selected'":" "?>><?php echo e($destinatario->nombre); ?></option>
+                <?php endforeach; ?>
+               </select><br>
+
+              
+               <label for="">cursos</label>
+               <select  class="form-control"  name="curso" >
+                <?php foreach($cursos as $curso): ?>
+               	<option value="<?php echo e($curso->idCurso); ?>" <?php echo $resultado=($curso->idCurso==$periodo[0]->idCursoF)? "selected='selected'":" "; ?>><?php echo e($curso->nombre); ?>&nbsp;&nbsp;<?php echo e($subtitulo=($curso->desCorto)? "(".$curso->desCorto.")" : " "); ?></option>
+                <?php endforeach; ?>
+               </select><br>	
+              
+                <label for="">Capacitador</label>
+               <select  class="form-control"  name="capacitador" >
+                <?php foreach($capacitadores as $capacitador): ?>
+                    <option value="<?php echo e($capacitador->nombre); ?>" <?php echo $cap=($periodo[0]->capacitador==$capacitador->nombre)?"selected='selected'":" "?>><?php echo e($capacitador->nombre); ?></option>
+                <?php endforeach; ?>
+               </select><br>
+
+               <label for="">Fecha</label>
+               <input type="date" class="form-control"  name="fecha" placeholder="fecha en la que se  dicta el curso" value="<?php echo e($periodo[0]->fecha); ?>"><br>
+
+     
+
+               <input type="submit" value="ACEPTAR" class="btn btn-primary">
+
+
+
+
+
+          </form>
+
+      </div>
+
+</div>
+
+
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

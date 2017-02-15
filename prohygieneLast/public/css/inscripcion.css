@@ -1,0 +1,19 @@
+.setborder
+{
+ border: 1px solid black;
+}
+
+.alto{height: 40px}
+
+
+.resetborder{border:none!important;}
+
+.fondo{
+	background-color:#A9C4EB;
+}
+
+.setInput{
+ padding: 5px;
+ margin-left: 10px;
+}
+

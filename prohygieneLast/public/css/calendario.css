@@ -1,0 +1,15 @@
+ .fc-event-container{
+  width: 300px;
+}
+
+.ui-dialog-titlebar-close {
+  visibility: hidden;
+}
+
+.ui-dialog-titlebar{ display: none;}
+
+.fc-event-container
+{
+
+cursor:pointer;
+}

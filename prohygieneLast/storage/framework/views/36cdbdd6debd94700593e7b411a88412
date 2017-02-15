@@ -1,0 +1,65 @@
+<?php
+header('Content-type: application/vnd.ms-excel; charset=UTF-8');
+header("Content-Disposition: attachment; filename=reporteContactosAgenda.xls");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+
+?>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+       <td align='center' colspan="11" style="background-color:#286BCC;color:white;height:50px"><div style="padding-bottom:100px;"><strong><font face="Verdana, Arial, Helvetica, sans-serif"><font size="4">Inscripción de Cursos <?php echo e(utf8_decode($data[0]->periodoNombre)); ?></font></font></strong></div></td>
+
+  </tr>
+
+
+  <tr>
+    <td><div align="center"><strong><font face="Verdana, Arial, Helvetica, sans-serif"><font size="2">Fecha Inscripción</font></font></strong></div></td>
+    <td><div align="center"><strong><font face="Verdana, Arial, Helvetica, sans-serif"><font size="2">Fecha</font></font></strong></div></td>
+    <td><div align="center"><strong><font face="Verdana, Arial, Helvetica, sans-serif"><font size="2">Curso</font></font></strong></div></td>
+    <td><div align="center"><strong><font face="Verdana, Arial, Helvetica, sans-serif"><font size="2">Participante</font></font></strong></div></td>
+    <td><div align="center"><strong><font face="Verdana, Arial, Helvetica, sans-serif"><font size="2">Nombre y Apellido</font></font></strong></div></td>
+    <td><div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Rol</font></strong></div></td>
+    <td><div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Ciudad</font></strong></div></td>
+    <td><div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Pais</font></strong></div></td>
+    <td><div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Usiario De Skype</font></strong></div></td>
+    <td><div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Lider</font></strong></div></td>
+    <td><div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Capacitador Del curso</font></strong></div></td>
+  </tr>
+  <?php foreach ($data as $dato){
+  if($dato->nombre==""){$nombre=$dato->idPeriodoF;}else{$nombre=$dato->nombre;}
+  echo"<tr>";
+   echo"<td align='center'>".$dato->fechains."</td>";
+   echo"<td align='center'>".$dato->fecha."</td>","<td align='center'>".$nombre."</td>";
+   echo "<td align='center'>".$dato->email."</td>";
+   echo "<td align='center'>".$dato->name.'&nbsp;'.$surname=($dato->surname)?$dato->surname:''."</td>";
+   echo "<td align='center'>".$dato->rol."</td>";
+   echo "<td align='center'>".$dato->city."</td>";
+   echo "<td align='center'>".$dato->country."</td>";
+    
+  
+
+    echo "<td align='center'>".$dato->skype."</td>","<td align='center'>".$dato->nombreFacilitador."</td>","<td align='center'>".$dato->capacitador."</td>";
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  echo"</tr>";
+
+}?>
+
+
+
+</table>
