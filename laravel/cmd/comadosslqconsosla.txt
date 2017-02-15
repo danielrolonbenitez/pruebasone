@@ -1,0 +1,10 @@
+Para ver la estructura de una tabla usamos el comando "describe" junto al nombre de la tabla:
+
+	describe usuarios;
+
+Para ver las tablas existentes en una base de datos tipeamos nuevamente:
+
+	show tables;
+
+drop table if exists usuarios;
+En la sentencia precedente especificamos que elimine la tabla "usuarios" si existe.

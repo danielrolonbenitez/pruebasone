@@ -1,0 +1,2 @@
+$git reset --hard origin/master //borra todo lo que tiene master y lo sincroniza con el repositorio remoto.
+

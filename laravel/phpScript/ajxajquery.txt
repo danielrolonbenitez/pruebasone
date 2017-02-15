@@ -1,0 +1,95 @@
+<!--script envia por ajax el valor que tiene la caja -->
+<script>
+	
+ var param=$('.active').find('span').html();
+
+
+function presione(){
+
+	//almacena los alumno iscriptos por get//
+
+  param=$('.active').find('span').html();
+
+
+ 	
+       var parametros = {
+               "periodoNombre" : param,
+                
+        };
+        $.ajax({
+                data:  parametros,
+                url:   'loadEvent',
+                type:  'get',
+               beforeSend: function () {
+                    
+                },
+               success:  function (response) {
+			                	
+			       
+                         
+
+
+
+			                 
+
+		            }
+        });
+
+  //alert("hola"+param);
+
+ 
+
+
+
+
+}//en pesione
+
+
+
+
+
+ //envia el  valor del parametro cuando se carga la pagina//
+
+ var parametros = {
+               "periodoNombre" : param,
+                
+        };
+
+
+
+  $.ajax({
+                data:  parametros,
+                url:   'loadEvent',
+                type:  'get',
+               beforeSend: function () {
+                    
+                },
+               success:  function (response) {
+			                	
+			                    console.log(response+"nome");
+
+                           
+
+
+
+
+
+			                 
+
+		            }
+        });
+
+
+
+
+
+
+
+
+//carga fomulario//
+
+
+
+
+
+</script>

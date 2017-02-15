@@ -1,0 +1,17 @@
+
+   	   $negocio=new Negocio();
+       
+   	   $negocio->razonSocial=Request::get('razonSocial');
+   	   $negocio->direccion=Request::get('direccion');
+   	   $negocio->idProvinciaF=Request::get('provincia');
+   	   $negocio->idCiudadF=Request::get('ciudad');
+   	   $negocio->sitioWeb=Request::get('sitioWeb');
+   	   $negocio->telefono=Request::get('telefono');
+   	   $negocio->entidad=Request::get('entidad');
+   	   $negocio->estado=Request::get('estado');
+   	   $negocio->latitud=Request::get('latitud');
+   	   $negocio->longitud=Request::get('longitud');
+   	   $negocio->save();
+
+                
+   	    $id=DB::table('negocios')->max('idNegocio');

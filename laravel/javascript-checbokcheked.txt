@@ -1,0 +1,7 @@
+jQuery("#activo").change(function(event) {
+
+    if(jQuery(this).is(":checked")) {
+
+      jQuery(this).val('1');
+      }else{ jQuery(this).val('0');}
+  });

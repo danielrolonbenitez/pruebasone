@@ -1,0 +1,12 @@
+
+delimiter//
+CREATE TRIGGER log_insert_wp_terms AFTER INSERT ON wp_terms
+FOR EACH
+ROW
+  BEGIN
+   INSERT INTO vns_log_wp_terms(id_terms,accion) VALUES(NEW.term_id, 'insert')
+  END;
+
+//
+
+delimiter ;

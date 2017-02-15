@@ -1,0 +1,7 @@
+{
+    "name": "vnstudios/prueba",
+    "description": "prueba",
+    "require": {
+        "phpmailer/phpmailer": "^5.2"
+    }
+}

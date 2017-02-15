@@ -1,0 +1,2 @@
+ var f = new Date();
+ $fecha= f.getFullYear()+ "/" + (f.getMonth() +1) + "/" +f.getDate();

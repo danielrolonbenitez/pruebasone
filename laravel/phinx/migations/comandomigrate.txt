@@ -1,0 +1,23 @@
+ejecutar las migraciones  phinx migrate
+
+
+crear una clase migrate phinx create MyNewMigration
+
+ver el estado de las migraciones phinx status  una ves que en ele stautus la migration aprace como up
+  y se desea realizar algun cambio se debera borrar y crear otra migration.
+
+
+
+
+ $this->execute("CREATE TABLE IF NOT EXISTS `actualizacion_contacto_entidad_cargo` (
+  `idLog` int(11) NOT NULL,
+  `idContacto` int(11) NOT NULL,
+  `idEntidad` int(11) NOT NULL,
+  `idCargoAnterior` int(11) NOT NULL,
+  `fechaInicioMandato` date DEFAULT NULL,
+  `fechaVencimientoMandato` date DEFAULT NULL,
+  `fehcaActualizacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `idCargoActual` int(11) NOT NULL,
+  `idUsuario` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1");
+

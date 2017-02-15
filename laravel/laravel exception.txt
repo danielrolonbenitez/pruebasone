@@ -1,0 +1,3 @@
+MethodNotAllowedHttpException in compiled.php se deve aque se quiere acceder atraves de un request distinto a el de definido en la ruta ejemplo.
+
+route::post(/ver,"home@index"); nos daria este error si intentamos acceder atraves de post;

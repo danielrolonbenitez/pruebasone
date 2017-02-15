@@ -1,0 +1,1 @@
+$php make:model nombreDElModelo.php

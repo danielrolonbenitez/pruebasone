@@ -1,0 +1,19 @@
+idNegocio int(11) primary key AUTO_INCREMENT,
+
+razonSocial varchar(400) not null,
+
+direccion varchar(400) not null,
+ 
+
+latitud int(11) not null,
+
+longitud int(11) not null,
+
+
+sitioWeb varchar(400),
+
+telefono int(11),
+estado bool,
+
+`created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+ `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'

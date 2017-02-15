@@ -1,0 +1,11 @@
+DELIMITER //
+
+create PROCEDURE buscaId(in id int )
+
+BEGIN
+
+select * from provincias where idProvincia=id;
+
+END//
+
+https://www.codejobs.biz/es/

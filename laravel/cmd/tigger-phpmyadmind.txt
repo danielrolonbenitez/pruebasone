@@ -1,0 +1,82 @@
+
+delimiter //
+CREATE TRIGGER log_update_wpterms BEFORE UPDATE ON wp_terms
+FOR EACH
+ROW
+BEGIN
+   INSERT INTO vns_log_wp_terms(id_terms,accion) VALUES (NEW.term_id,'update');
+END;
+//
+delimiter ;
+
+
+
+
+delimiter //
+CREATE TRIGGER log_insert_wpterms BEFORE INSERT ON wp_terms
+FOR EACH
+ROW
+BEGIN
+   INSERT INTO vns_log_wp_terms(id_terms,accion) VALUES (NEW.term_id,'insert');
+END;
+//
+delimiter ;
+
+
+
+
+
+
+CREATE TABLE `vns_log_wp_terms` (
+  `id` int(11) NOT NULL,
+  `id_terms` int(11) NOT NULL,
+  `accion` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+
+
+
+
+ALTER TABLE `vns_log_wp_terms`
+  ADD PRIMARY KEY (`id`);
+
+
+
+ALTER TABLE `vns_log_wp_terms`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+
+
+
+
+
+
+
+
+
+
+
+
+delimiter //
+CREATE TRIGGER actualiza BEFORE INSERT ON wp_terms
+FOR EACH
+ROW
+BEGIN
+   INSERT INTO vns_wp_pins(idCat,pinName,grupo_id) VALUES(NEW.term_id,NEW.name,'0');
+END;
+//
+delimiter ;
+
+
+
+delimiter //
+CREATE TRIGGER actualiza BEFORE INSERT ON wp_terms
+FOR EACH
+ROW
+BEGIN
+   INSERT INTO vns_wp_pins(idCat,pinName,grupo_id) VALUES(NEW.term_id,NEW.name,'0');
+END;
+//
+delimiter ;

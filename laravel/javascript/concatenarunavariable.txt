@@ -1,0 +1,16 @@
+imprimir un array javascript
+
+0: Object
+ciudad_nombre: "AVELLANEDA"
+cp: 1870
+id: 2458
+provincia_id: 1
+
+
+
+
+
+
+
+
+               console.log(response[0]['id']);

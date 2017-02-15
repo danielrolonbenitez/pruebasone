@@ -1,0 +1,1 @@
+composer dump-autoload; ejecuta este comando para que laS RUTAS DEL SEEDER SE VUELVAN A GENERAR Y SE ACTUALIZE LARAVEL.

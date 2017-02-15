@@ -1,0 +1,177 @@
+jQuery(window).load(function(){
+
+jQuery('.check').click(function(event) {
+ 
+  var idEntidad=jQuery(this).attr('id');
+  var che;
+
+  if(jQuery(this).attr('checked')){
+     che=1;
+  }else{che=0;}
+
+ /*envia por post el id de la entidad y el estado*/
+
+jQuery.post('index.php?m=empresas&op=actulizar_notifica_envio_email',{'estado':che,'idEntidad':idEntidad},function(data){
+
+});
+
+/*end post*/
+
+});
+
+
+
+jQuery('#marcarTodas').click(function(event) {
+
+jQuery('.check').each(function(index, element) {
+ jQuery(element).attr('checked','checked');
+ });
+
+/*envia el estado*/
+jQuery.post('index.php?m=empresas&op=marcar_todas_notifica_envio_email',{'estado':1},function(data){
+  
+});
+
+/*end post*/	
+
+});
+
+
+});/*windows load*/
+
+
+</script>
+JOIN localidadinterior
+        ON localidadinterior.`idLocalidad` = det.`idLocalidad`
+
+
+
+
+
+
+
+
+
+$sql="SELECT
+  e.`RazonSocial`,
+  e.`sigla`,
+  me.mail as mail_entidad,
+  te.telefonos telefono_entidad,
+  de.direccion direccion_entidad,
+  de.provincia provincia_entidad,
+  de.localidad localidad_endidad,
+  CONCAT(cec.nombre, ' ', cec.apellido) contacto_nombre_apellido,
+  cec.emails contacto_emails,
+  cec.celulares contacto_celulares,
+  cec.direccion direccion_contacto,
+  cec.provincia provincia_contacto,
+  cec.localidad localidad_contacto
+FROM
+  entidad e
+LEFT JOIN mail_entidad as me
+ON  e.idEntidad=me.idEntidad
+
+  LEFT JOIN
+    (SELECT
+      tcec.`idContacto`,
+      tc.`apellido`,
+      tc.`nombre`,
+      tcec.`idEntidad`,
+      tm.emails,
+      tt.celulares,
+      td.direccion,
+      td.provincia,
+      td.localidad
+    FROM
+      contacto_entidad_cargo tcec
+      LEFT JOIN contacto tc
+        ON tc.`idContacto` = tcec.`idContacto`
+      LEFT JOIN
+        (SELECT
+          GROUP_CONCAT(mail) emails,
+          idContacto
+        FROM
+          mail_contacto
+        GROUP BY idContacto) tm
+        ON tm.idContacto = tcec.`idContacto`
+      LEFT JOIN
+        (SELECT
+          GROUP_CONCAT(
+            '(',
+            codigoArea,
+            ') ',
+            telefono SEPARATOR '@'
+          ) celulares,
+          idContacto
+        FROM
+          telefono_contacto
+        WHERE idTipoTelefono = 7
+        GROUP BY idContacto) tt
+        ON tt.idContacto = tcec.`idContacto`
+      LEFT JOIN
+        (SELECT
+          dct.`idContacto`,
+          GROUP_CONCAT(
+            dct.calle,
+            ' ',
+            dct.altura,
+            ' ',
+            dct.piso,
+            ' ',
+            dct.torre,
+            ' ',
+            dct.dto SEPARATOR ' <br/> '
+          ) direccion,
+          provincia.`provincia`,
+          localidadinterior.`localidad`
+        FROM
+          direccion_contacto dct
+          LEFT JOIN provincia
+            ON provincia.`idProvincia` = dct.`idProvincia`
+          LEFT JOIN localidadinterior
+            ON localidadinterior.`idLocalidad` = dct.`idLocalidad`
+        GROUP BY idContacto) td
+        ON td.idContacto = tcec.`idContacto`
+    WHERE tcec.idCargo = 1) cec
+    ON cec.idEntidad = e.`idEntidad`
+  LEFT JOIN
+    (SELECT
+      GROUP_CONCAT(
+        '(',
+        codigoPais,
+        '-',
+        codigoArea,
+        ') ',
+        telefono SEPARATOR '<br/>'
+      ) telefonos,
+      idEntidad
+    FROM
+      telefono_entidad
+    GROUP BY idEntidad) te
+    ON te.idEntidad = e.`idEntidad`
+  LEFT JOIN
+    (SELECT
+      det.`idEntidad`,
+      GROUP_CONCAT(
+        det.calle,
+        ' ',
+        det.altura,
+        ' ',
+        det.piso,
+        ' ',
+        det.torre,
+        ' ',
+        det.dto SEPARATOR ' <br/> '
+      ) direccion,
+      provincia.`provincia`,
+      localidadinterior.`localidad`
+    FROM
+      direccion_entidad det
+      LEFT JOIN provincia
+        ON provincia.`idProvincia` = det.`idProvincia`
+      LEFT JOIN localidadinterior
+        ON localidadinterior.`idLocalidad` = det.`idLocalidad`
+    GROUP BY idEntidad) de
+    ON de.idEntidad = e.`idEntidad`
+WHERE e.idEntidad ='{$idEntidad}'";
+

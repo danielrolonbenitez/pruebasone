@@ -1,0 +1,40 @@
+public function AllLoadNegocios(){
+
+                                                        
+ $data=DB::table('negocios as n')->
+                  join('provincias as p','n.idProvinciaF','=','p.idProvincia')->
+                  join('ciudades as c','n.idCiudadF','=','c.idCiudad')->
+                  join('fotos as f','n.idNegocio','=','f.idNegocioF')->
+                  join('negocios_rubros as nr','n.idNegocio','=','nr.idNegocioF')->
+                  join('rubros as r','nr.idRubroF','=','r.idRubro')->
+                  select('*','p.nombre AS p_nombre','r.nombre AS rubro_nombre','c.nombre AS ciudad_nombre')->
+                  where('f.status','=','active')->
+                  groupBy('n.idNegocio')->
+                  get();
+                                                                                                                                                                                      
+
+ //dd($data);                                                                                                                                                                               
+                                                                                                                                                                                          
+$data=$this->agregaRubos($data); 
+
+$data=Collection::make($data);
+$data=$this->createManualPaginator($data);
+return $data;
+}
+
+
+
+ private function createManualPaginator($collection, $perPage = 3)
+   {
+       //Get current page form url e.g. &page=6
+       $currentPage = LengthAwarePaginator::resolveCurrentPage();
+
+       //Slice the collection to get the items to display in current page
+       $currentPageSearchResults = $collection->slice(($currentPage - 1) * $perPage, $perPage)->all();
+
+       //Create our paginator and  ASs it to the view
+       $paginatedSearchResults = new LengthAwarePaginator($currentPageSearchResults, count($collection), $perPage);
+       $paginatedSearchResults->setPath(url('/prueba'));
+
+       return $paginatedSearchResults;
+   }

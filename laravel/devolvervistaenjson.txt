@@ -1,0 +1,4 @@
+$returnHTML=view('Admin.verPorPantalla')->with('data',$data)->render();
+
+
+return response()->json(array('success' => true, 'html'=>$returnHTML));

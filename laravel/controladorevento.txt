@@ -1,0 +1,752 @@
+<?php
+include_once("Clases/phpmailer/class.phpmailer.php");
+class ControladorEventos {
+	var $mailer;
+	
+	
+	public function __construct(){		
+		$this->mailer = new PHPMailer();
+		$this->mailer->IsSMTP(); // telling the class to use SMTP
+		$this->mailer->IsHTML(true); // Envio tipo HTML
+		$this->mailer->SMTPAuth = true;
+		$this->mailer->Priority = 1; // ******* PRIORIDAD *******
+		$this->mailer->Host ='mailtrap.io'; //Modificar por el host de salida
+		$this->mailer->Username = "65cf4f37b0e5c4";    // SMTP username -- CHANGE --
+		$this->mailer->Password = "803366c5f9ce46";    // SMTP password -- CHANGE --
+		$this->mailer->CharSet = 'utf-8'; 
+		$this->mailer->WordWrap = 50;
+	}
+	
+	
+	
+	
+	public function crearEvento($datos){
+		
+		$evento = new Evento();
+		$evento->setNombre($datos['nombre']);
+		$evento->setLugar($datos['lugar']);
+		$desde = explode("/",$datos['desde']);
+		$evento->setDesde($desde[2]."-".$desde[1]."-".$desde[0]);
+		$hasta = explode("/",$datos['hasta']);
+		$evento->setHasta($hasta[2]."-".$hasta[1]."-".$hasta[0]);
+		$evento->setCapacidad($datos['capacidad']);
+		
+		$MySQL = MySQL::getInstance();
+		$sql = "INSERT INTO eventos SET nombre = '".$evento->getNombre()."', lugar = '".$evento->getLugar()."', desde ='".$evento->getDesde()."', hasta='".$evento->getHasta()."', capacidad = '".$evento->getCapacidad()."'";
+		
+		$MySQL->setQuery($sql);
+		if($MySQL->execute()){
+			$id = $MySQL->getId();
+			$evento->setIdEvento($id);
+			
+			foreach($datos['sectores'] as $sector){
+				$sql = "INSERT INTO evento_sector SET idEvento = '".$evento->getIdEvento()."', idSector = '".$sector."'";
+				$MySQL->setQuery($sql);
+				$MySQL->execute();
+			}
+			$evento->setSectores($datos['sectores']);
+			return $evento->getIdEvento();
+			
+		}
+		else{
+			throw new Exception("Error al ejecutar la consulta");
+			return false;
+		}
+	}
+		
+	public function modificarEvento($datos){
+		
+		$evento = new Evento();
+		$evento->setIdEvento($datos['idEvento']);
+		$evento->setNombre($datos['nombre']);
+		$evento->setLugar($datos['lugar']);
+		$desde = explode("/",$datos['desde']);
+		$evento->setDesde($desde[2]."-".$desde[1]."-".$desde[0]);
+		$hasta = explode("/",$datos['hasta']);
+		$evento->setHasta($hasta[2]."-".$hasta[1]."-".$hasta[0]);
+		$evento->setCapacidad($datos['capacidad']);
+		
+		$MySQL = MySQL::getInstance();
+		$sql = "UPDATE eventos set nombre = '".$evento->getNombre()."', lugar = '".$evento->getLugar()."', desde ='".$evento->getDesde()."', hasta='".$evento->getHasta()."', capacidad = '".$evento->getCapacidad()."' WHERE idEvento = '".$evento->getIdEvento()."'";
+		$MySQL->setQuery($sql);
+		if($MySQL->execute()){		
+			$sql = "DELETE FROM evento_sector WHERE idEvento = '".$evento->getIdEvento()."'";
+			$MySQL->setQuery($sql);
+			$MySQL->execute();
+			foreach($datos['sectores'] as $sector){
+				$sql = "INSERT INTO evento_sector SET idEvento = '".$evento->getIdEvento()."', idSector = '".$sector."'";
+				$MySQL->setQuery($sql);
+				$MySQL->execute();
+			}
+			return $evento->getIdEvento();
+		}
+		else{
+			return false;
+		}
+		
+		
+	}
+		
+	public function cambiarEstadoInscripto($idInscripto,$estado){
+		$MySQL = MySQL::getInstance();
+		$sql = "UPDATE inscriptos_evento SET asistio = '".$estado."' WHERE idInscripto = '".$idInscripto."'";
+		$MySQL->setQuery($sql);
+		$MySQL->execute();
+	}
+		
+	public function modificarDatosInscripto($data){
+		$MySQL = MySQL::getInstance();
+		$sql = "UPDATE inscriptos_evento SET ";
+		$sql .= "dni = '".$data['dni']."',";
+		$sql .= "nombre = '".$data['nombre']."',";
+		$sql .= "apellido = '".$data['apellido']."',";
+		$sql .= "codigoPais = '".$data['codigoPais']."',";
+		$sql .= "codigoArea = '".$data['codigoArea']."',";
+		$sql .= "telefono = '".$data['telefono']."',";
+		$sql .= "email = '".$data['email']."',";
+		$sql .= "asistio = '".$data['asistio']."',";
+		$sql .= "entidad = '".$data['entidad']."',";
+		$sql .= "cuitEntidad = '".$data['cuitEntidad']."',";
+		$sql .= "empresa = '".$data['empresa']."',";
+		$sql .= "cuitEmpresa = '".$data['cuitEmpresa']."'";
+		$sql .= " WHERE idInscripto = '".$data['idInscripto']."'";
+		$MySQL->setQuery($sql);
+		if($MySQL->execute()){
+			return true;
+		}
+	}
+		
+	public function guardarDatosFenix($data){
+		$MySQL = MySQL::getInstance();
+		
+		$sql = "UPDATE inscriptos_evento SET asistio = ".$data['asistio'].", checked = 1 WHERE idInscripto = '".$data['idInscripto']."'";
+		$MySQL->setQuery($sql);
+		$MySQL->execute();
+		
+		if($data['accion']=='alta'){
+			$sql = "INSERT INTO a_contacto SET ";
+			$sql .= "idAgenda = '".$data['idAgenda']."',";
+		}
+		if($data['accion']=='modifica'){
+			$sql = "UPDATE a_contacto SET ";
+		}
+		$sql .= "dni = '".$data['dni']."',";
+		$sql .= "nombre = '".$data['nombre']."',";
+		$sql .= "apellido = '".$data['apellido']."',";
+		$sql .= "empresaParticular = '".$data['empresa']."',";
+		$sql .= "cuitEmpresaParticular = '".$data['cuitEmpresa']."'";
+		if($data['accion']=='modifica'){
+			$sql .= " WHERE idContacto = '".$data['idContacto']."'";
+		}
+		$MySQL->setQuery($sql);
+		if($MySQL->execute()){
+			if($data['accion']=='alta'){
+				$data['idContacto'] = $MySQL->getId();
+			}
+			if(!empty($data['idInternoTelefono'])){
+				$sql = "SELECT * FROM a_telefono_c WHERE idInterno = ".$data['idInternoTelefono'];
+				$MySQL->setQuery($sql);
+				$MySQL->execute();
+				$telefono = $MySQL->loadObject();
+				if($telefono->telefono == $data['telefono']){
+					$nuevo_telefono = true;
+				}
+				else{
+					$nuevo_telefono = false;
+				}
+			}
+			else{
+				$nuevo_telefono = true;
+			}
+			if($data['telefono']!='' && $nuevo_telefono==true){
+				$sql = "INSERT INTO a_telefono_c SET ";
+				$sql .= "idTipoTelefono = '1',";
+				$sql .= "codigoPais = '".$data['codigoPais']."',";
+				$sql .= "codigoArea = '".$data['codigoArea']."',";
+				$sql .= "telefono = '".$data['telefono']."',";
+				$sql .= "idContacto = '".$data['idContacto']."'";
+				$MySQL->setQuery($sql);
+				$MySQL->execute();
+			}
+			if(!empty($data['idInternoEmail'])){
+				$sql = "SELECT * FROM a_mail_c WHERE idInterno = ".$data['idInternoEmail'];
+				$MySQL->setQuery($sql);
+				$MySQL->execute();
+				$email = $MySQL->loadObject();
+				if($email->mail == $data['email']){
+					$nuevo_email = true;
+				}
+				else{
+					$nuevo_email = false;
+				}
+			}
+			else{
+				$nuevo_email = true;
+			}
+			if($data['email']!='' && $nuevo_email==true){
+				$sql = "INSERT INTO a_mail_c SET ";
+				$sql .= "idTipoMail = '1',";
+				$sql .= "mail = '".$data['email']."',";
+				$sql .= "idContacto = '".$data['idContacto']."'";
+				$MySQL->setQuery($sql);
+				$MySQL->execute();
+			}
+			
+			$sql = "INSERT INTO a_contacto_evento SET ";
+			$sql .= "idContacto = '".$data['idContacto']."', ";
+			$sql .= "idEvento = '".$data['idEvento']."', ";
+			$sql .= "asistio = '".$data['asistio']."', ";
+			$sql .= "notas = '".$data['notas']."' ";
+			$MySQL->setQuery($sql);
+			$MySQL->execute();
+			
+			return true;
+		}
+	}
+	public function crearReserva($datos){
+		
+		$MySQL = MySQL::getInstance();
+		
+			list($d,$m,$a) = explode('/',$datos['fecha']);
+			$fecha = "$a-$m-$d";
+			
+			$sql = "INSERT INTO reservas SET ";
+			$sql .= "aereo = '".$datos['aereo']."', ";
+			$sql .= "tipo_aereo = '".$datos['tipo_aereo']."', ";
+			$sql .= "hotel = '".$datos['hotel']."', ";
+			$sql .= "fecha_registro = NOW(), ";
+			$sql .= "evento = '".$datos['evento']."', ";
+			$sql .= "idEstado = '1', ";
+			$sql .= "idSector = '".$datos['idSector']."', ";
+			if($datos['hotel']==1){
+				if(count($datos['reserva_hotel'])==1 && $datos['pax_sgl'] == ''){
+					$datos['pax_sgl'] = $datos['reserva_hotel'][0]['apellido'];
+				}
+				$sql .= "hab_sgl = '".$datos['hab_sgl']."', ";
+				$sql .= "hab_dbl_mat = '".$datos['hab_dbl_mat']."', ";
+				$sql .= "hab_dbl_twin = '".$datos['hab_dbl_twin']."', ";
+				$sql .= "hab_tpl = '".$datos['hab_tpl']."', ";
+				$sql .= "hab_cdpl = '".$datos['hab_cdpl']."', ";
+			}
+			$sql .= "email = '".$datos['email']."', ";
+			$sql .= "idUsuario = '".$_SESSION['registrado']['idUsuario']."' ";
+						
+		$MySQL->setQuery($sql);
+		if($MySQL->execute()){
+			$id = $MySQL->getId();
+			
+			if($datos['hotel']==1){
+				foreach($datos['reserva_hotel'] as $reserva){
+					
+					list($d,$m,$a) = explode('/',$reserva['fecha_in']);
+					$fecha_in = "$a-$m-$d";
+					list($d,$m,$a) = explode('/',$reserva['fecha_out']);
+					$fecha_out = "$a-$m-$d";
+					
+					$sql = "INSERT INTO reservas_personas_hotel SET ";
+					$sql .= "idReserva = '".$id."', ";
+					$sql .= "nombre = '".$reserva['nombre']."', ";
+					$sql .= "apellido = '".$reserva['apellido']."', ";
+					$sql .= "dni = '".preg_replace('#[^0-9]#','',$reserva['dni'])."', ";
+					$sql .= "fecha_in = '".$fecha_in."', ";
+					$sql .= "fecha_out = '".$fecha_out."', ";
+					$sql .= "ciudad_destino = '".$reserva['ciudad_destino']."'";
+					$MySQL->setQuery($sql);
+					$MySQL->execute();
+				}
+				
+				foreach($datos['pax_hab'] as $tipo_habitacion => $habitacion){	
+					foreach($habitacion as $pax){
+						$sql = "INSERT INTO reservas_pax_habitacion SET ";
+						$sql .= "idReserva = '".$id."', ";
+						$sql .= "tipo_habitacion = '".$tipo_habitacion."', ";
+						$sql .= "pax = '".$pax."'";
+						$MySQL->setQuery($sql);
+						$MySQL->execute();
+					}
+				}
+			}
+			
+			if($datos['aereo']==1){
+				foreach($datos['reserva_aereo'] as $reserva){
+					
+					list($d,$m,$a) = explode('/',$reserva['fecha_ida']);
+					$fecha_ida = "$a-$m-$d";
+					list($d,$m,$a) = explode('/',$reserva['fecha_vuelta']);
+					$fecha_vuelta = "$a-$m-$d";
+					if(!empty($reserva['hora_ida'])) $reserva['hora_ida'] = date('H:i',strtotime($reserva['hora_ida']));
+					if(!empty($reserva['hora_vuelta'])) $reserva['hora_vuelta'] = date('H:i',strtotime($reserva['hora_vuelta']));
+					
+					$sql = "INSERT INTO reservas_personas_aereo SET ";
+					$sql .= "idReserva = '".$id."', ";
+					$sql .= "nombre = '".$reserva['nombre']."', ";
+					$sql .= "apellido = '".$reserva['apellido']."', ";
+					$sql .= "dni = '".preg_replace('#[^0-9]#','',$reserva['dni'])."', ";
+					$sql .= "fecha_ida = '".$fecha_ida."', ";
+					$sql .= "horario_ida = '".$reserva['horario_ida']."', ";
+					$sql .= "hora_ida = '".$reserva['hora_ida']."', ";
+					$sql .= "estado_vuelta = '".$reserva['estado_vuelta']."', ";
+					$sql .= "fecha_vuelta = '".$fecha_vuelta."', ";
+					$sql .= "horario_vuelta = '".$reserva['horario_vuelta']."', ";
+					$sql .= "hora_vuelta = '".$reserva['hora_vuelta']."', ";
+					$sql .= "aeropuerto_origen = '".$reserva['aeropuerto_origen']."', ";
+					$sql .= "aeropuerto_destino = '".$reserva['aeropuerto_destino']."', ";
+					$sql .= "nro_pf = '".$reserva['nro_pf']."'";
+					$MySQL->setQuery($sql);
+					$MySQL->execute();
+				    $idAereo=$MySQL->getId();
+			
+
+              /*begin tramo */
+             foreach ($reserva['reserva_tramo'] as $tramo) {
+          
+                   list($d,$m,$a) = explode('/',$tramo['fecha_ida']);
+					$fecha_ida = "$a-$m-$d";
+					
+					if(!empty($tramo['hora_ida'])) $tramo['hora_ida'] = date('H:i',strtotime($tramo['hora_ida']));
+					
+					$sql = "INSERT INTO reservas_personas_tramos SET ";
+					$sql .= "idReservaF = '".$id."', ";
+					$sql .= "idAereo = '".$idAereo."', ";
+                    $sql .= "fecha_ida = '".$fecha_ida."', ";
+					$sql .= "horario_ida = '".$tramo['horario_ida']."', ";
+					$sql .= "hora_ida = '".$tramo['hora_ida']."', ";
+					$sql .= "aeropuerto_origen = '".$tramo['aeropuerto_origen']."', ";
+					$sql .= "aeropuerto_destino = '".$tramo['aeropuerto_destino']."'";
+					$MySQL->setQuery($sql);
+	                $MySQL->execute();
+
+
+
+                 }
+
+            /*end tramo*/
+
+               
+        
+
+
+             	}//end foreach aereos
+
+
+			}
+			
+			return $id;
+			
+		}
+		else{
+			throw new Exception("Error al ejecutar la consulta");
+			return false;
+		}
+	}
+	public function guardarReserva($datos){
+		
+		 //var_dump($datos);die(); 
+		$MySQL = MySQL::getInstance();
+		    //echo var_dump($datos);die();
+			/*echo "<script type=\"text/javascript\">console.log(\"";
+			print_r($datos);
+			echo "\");</script>";*/
+			
+			list($d,$m,$a) = explode('/',$datos['vencimiento_aereo']);
+			$vencimiento_aereo = "$a-$m-$d";
+			
+			$sql = "UPDATE reservas SET ";
+			$sql .= "aereo = '".$datos['aereo']."', ";
+			$sql .= "tipo_aereo = '".$datos['tipo_aereo']."', ";
+			$sql .= "hotel = '".$datos['hotel']."', ";
+			$sql .= "evento = '".$datos['evento']."', ";
+			$sql .= "idSector = '".$datos['idSector']."', ";
+			if(isset($datos['idEstado'])) $sql .= "idEstado = '".$datos['idEstado']."', ";
+			if(isset($datos['costo_aereo'])) $sql .= "costo_aereo = '".str_replace(',','.',$datos['costo_aereo'])."', ";
+			if(isset($datos['vencimiento_aereo'])) $sql .= "vencimiento_aereo = '".$vencimiento_aereo."', ";
+			if(isset($datos['reserva_aerea'])) $sql .= "reserva_aerea = '".$datos['reserva_aerea']."', ";
+			if(isset($datos['costo_hotel']) )$sql .= "costo_hotel = '".str_replace(',','.',$datos['costo_hotel'])."', ";
+			if(isset($datos['permisos']) )$sql .= "permisos = '".$datos['permisos']."', ";
+			if($datos['hotel']==1){
+				$sql .= "hab_sgl = '".$datos['hab_sgl']."', ";
+				$sql .= "hab_dbl_mat = '".$datos['hab_dbl_mat']."', ";
+				$sql .= "hab_dbl_twin = '".$datos['hab_dbl_twin']."', ";
+				$sql .= "hab_tpl = '".$datos['hab_tpl']."', ";
+				$sql .= "hab_cdpl = '".$datos['hab_cdpl']."', ";
+			}
+			$sql .= "email = '".$datos['email']."'";
+			$sql .= "WHERE idReserva = '".$datos['idReserva']."' ";
+        	
+        	$id=$datos['idReserva'];
+      
+        //echo $sql;die();
+		$MySQL->setQuery($sql);
+		if($MySQL->execute()){
+			
+			$sql = "DELETE FROM reservas_personas_hotel WHERE idReserva = '".$datos['idReserva']."'";
+			$MySQL->setQuery($sql);
+			$MySQL->execute();
+			
+			
+			$sql = "DELETE FROM reservas_pax_habitacion WHERE idReserva = '".$datos['idReserva']."'";
+			$MySQL->setQuery($sql);
+			$MySQL->execute();
+			
+			
+			$sql = "DELETE FROM reservas_personas_aereo WHERE idReserva = '".$datos['idReserva']."'";
+			$MySQL->setQuery($sql);
+			$MySQL->execute();
+		
+			
+			$sql = "DELETE FROM reservas_reemisiones_aereo WHERE idReserva = '".$datos['idReserva']."'";
+			$MySQL->setQuery($sql);
+			$MySQL->execute();
+		
+            $sql = "DELETE FROM reservas_personas_tramos WHERE idReservaF = '".$datos['idReserva']."'";
+			$MySQL->setQuery($sql);
+			$MySQL->execute();
+
+            $sql = "DELETE FROM reservas_facturas_aereo WHERE idReserva = '".$datos['idReserva']."'";
+			$MySQL->setQuery($sql);
+			$MySQL->execute();
+
+
+			if($datos['hotel']==1){
+				foreach($datos['reserva_hotel'] as $reserva){
+					
+					list($d,$m,$a) = explode('/',$reserva['fecha_in']);
+					$fecha_in = "$a-$m-$d";
+					list($d,$m,$a) = explode('/',$reserva['fecha_out']);
+					$fecha_out = "$a-$m-$d";
+					
+					$sql = "INSERT INTO reservas_personas_hotel SET ";
+					$sql .= "idReserva = '".$datos['idReserva']."', ";
+					$sql .= "nombre = '".$reserva['nombre']."', ";
+					$sql .= "apellido = '".$reserva['apellido']."', ";
+					$sql .= "dni = '".preg_replace('#[^0-9]#','',$reserva['dni'])."', ";
+					$sql .= "fecha_in = '".$fecha_in."', ";
+					$sql .= "fecha_out = '".$fecha_out."', ";
+					if(isset($reserva['final_facturado']) )$sql .= "final_facturado = '".str_replace(',','.',$reserva['final_facturado'])."', ";
+					if(isset($reserva['n_factura']) )$sql .= "n_factura = '".$reserva['n_factura']."', ";
+					$sql .= "ciudad_destino = '".$reserva['ciudad_destino']."'";
+					$MySQL->setQuery($sql);
+					$MySQL->execute();
+				}
+				
+				foreach($datos['pax_hab'] as $tipo_habitacion => $habitacion){	
+					foreach($habitacion as $pax){
+						$sql = "INSERT INTO reservas_pax_habitacion SET ";
+						$sql .= "idReserva = '".$datos['idReserva']."', ";
+						$sql .= "tipo_habitacion = '".$tipo_habitacion."', ";
+						$sql .= "pax = '".$pax."'";
+						$MySQL->setQuery($sql);
+						$MySQL->execute();
+					}
+				}
+				
+			}
+			
+			if($datos['aereo']==1){
+				foreach($datos['reserva_aereo'] as $reserva){
+					if(!empty($reserva['apellido'])){
+						list($d,$m,$a) = explode('/',$reserva['fecha_ida']);
+						$fecha_ida = "$a-$m-$d";
+						list($d,$m,$a) = explode('/',$reserva['fecha_vuelta']);
+						$fecha_vuelta = "$a-$m-$d";
+						if(!empty($reserva['hora_ida'])) $reserva['hora_ida'] = date('H:i',strtotime($reserva['hora_ida']));
+						if(!empty($reserva['hora_vuelta'])) $reserva['hora_vuelta'] = date('H:i',strtotime($reserva['hora_vuelta']));
+						
+						$sql = "INSERT INTO reservas_personas_aereo SET ";
+						$sql .= "idReserva = '".$datos['idReserva']."', ";
+						$sql .= "nombre = '".$reserva['nombre']."', ";
+						$sql .= "apellido = '".$reserva['apellido']."', ";
+						$sql .= "dni = '".preg_replace('#[^0-9]#','',$reserva['dni'])."', ";
+						$sql .= "fecha_ida = '".$fecha_ida."', ";
+						$sql .= "horario_ida = '".$reserva['horario_ida']."', ";
+						$sql .= "hora_ida = '".$reserva['hora_ida']."', ";
+						$sql .= "estado_vuelta = '".$reserva['estado_vuelta']."', ";
+						$sql .= "fecha_vuelta = '".$fecha_vuelta."', ";
+						$sql .= "horario_vuelta = '".$reserva['horario_vuelta']."', ";
+						if(isset($reserva['hora_vuelta']) )$sql .= "hora_vuelta = '".$reserva['hora_vuelta']."', ";
+						$sql .= "aeropuerto_origen = '".$reserva['aeropuerto_origen']."', ";
+						$sql .= "aeropuerto_destino = '".$reserva['aeropuerto_destino']."', ";
+						//if(isset($reserva['final_facturado']) )$sql .= "final_facturado = '".str_replace(',','.',$reserva['final_facturado'])."', ";
+						//if(isset($reserva['n_ticket']) )$sql .= "n_ticket = '".$reserva['n_ticket']."', ";
+						//if(isset($reserva['n_factura']) )$sql .= "n_factura = '".$reserva['n_factura']."', ";
+						if(isset($reserva['multa']) )$sql .= "multa = '".str_replace(',','.',$reserva['multa'])."', ";
+						$sql .= "nro_pf = '".$reserva['nro_pf']."'";
+						$MySQL->setQuery($sql);
+						$MySQL->execute();
+                                                $idAereo = $MySQL->getId();
+                                                if(count($reserva['reemision'])>0){
+                                                    foreach($reserva['reemision'] as $reemision){
+                                                        $sql = "INSERT INTO reservas_reemisiones_aereo SET ";
+                                                        $sql .= "idReserva = '".$datos['idReserva']."', ";
+                                                        $sql .= "idAereo = '".$idAereo."', ";
+                                                        $sql .= "final_facturado = '".str_replace(',','.',$reemision['final_facturado'])."', ";
+                                                        $sql .= "n_ticket = '".$reemision['n_ticket']."', ";
+                                                        $sql .= "n_factura = '".$reemision['n_factura']."' ";
+                                                        $MySQL->setQuery($sql);
+                                                        $MySQL->execute();
+                                                    }
+                                                    
+                                                }
+									                                               
+                       
+
+
+
+                                 /*begin facturas */
+
+                                 //var_dump($reserva['factura']);//die();
+                                     if(count($reserva['factura'])>0){
+									foreach ($reserva['factura'] as $factura) {
+									                 
+														$sql = "INSERT INTO reservas_facturas_aereo SET ";
+														$sql .= "idReserva = '".$id."', ";
+														$sql .= "idAereo = '".$idAereo."', ";
+									                    $sql .= "final_facturado = '".str_replace(',','.',$factura['final_facturado'])."', ";
+														$sql .= "n_ticket = '".$factura['n_ticket']."', ";
+														$sql .= "n_factura = '".$factura['n_factura']."' ";
+														$MySQL->setQuery($sql);
+													    $MySQL->execute();
+
+									                 }
+						                  }
+						 /*end facturas*/
+
+
+
+
+                      
+                   /*verifica tramo*/
+
+                       //var_dump($reserva['reserva_tramo']);
+                       if(count($reserva['reserva_tramo'])>0){
+                                  foreach ($reserva['reserva_tramo'] as $tramo) {
+																							                                                                           
+												                                  	list($d,$m,$a) = explode('/',$tramo['fecha_ida']);
+												                                  	$fecha_ida = "$a-$m-$d";
+
+												                                  	if(!empty($tramo['hora_ida'])) $tramo['hora_ida'] = date('H:i',strtotime($tramo['hora_ida']));
+
+												                                  	$sql = "INSERT INTO reservas_personas_tramos SET ";
+												                                  	$sql .= "idReservaF = '".$id."', ";
+												                                  	$sql .= "idAereo = '".$idAereo."', ";
+												                                  	$sql .= "fecha_ida = '".$fecha_ida."', ";
+												                                  	$sql .= "horario_ida = '".$tramo['horario_ida']."', ";
+												                                  	$sql .= "hora_ida = '".$tramo['hora_ida']."', ";
+												                                  	$sql .= "aeropuerto_origen = '".$tramo['aeropuerto_origen']."', ";
+												                                  	$sql .= "aeropuerto_destino = '".$tramo['aeropuerto_destino']."'";
+												                                  	$MySQL->setQuery($sql);
+												                                  	$MySQL->execute();
+
+
+
+                 										                       }
+                 										 
+
+
+                 								}
+                        /*end tramo*/
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					
+				
+
+                }//end if apellido
+
+
+                          
+                           
+    
+
+                  
+
+
+
+
+
+				}//end foreach aereo
+			
+   
+                     
+
+			}//end aereo
+			
+			return $id;
+			
+		}
+		else{
+			throw new Exception("Error al ejecutar la consulta");
+			return false;
+		}
+	}
+	
+
+
+
+
+
+	public function crearReservaRemis($datos){
+		
+		$MySQL = MySQL::getInstance();
+		
+			list($d,$m,$a) = explode('/',$datos['fecha']);
+			$fecha = "$a-$m-$d";
+			
+			$sql = "INSERT INTO reservas_personas_remise SET ";
+			$sql .= "cantidad_pasajeros = '".$datos['cantidad_pasajeros']."', ";
+			$sql .= "pasajeros = '".$datos['pasajeros']."', ";
+			$sql .= "fecha_registro = NOW(), ";
+			$sql .= "fecha = '".$fecha."', ";
+			$sql .= "hora = '".$datos['hora']."', ";
+			$sql .= "origen = '".$datos['origen']."', ";
+			$sql .= "destino = '".$datos['destino']."', ";
+			$sql .= "espera = '".$datos['espera']."', ";
+			$sql .= "observaciones = '".$datos['observaciones']."', ";
+			$sql .= "idEstado = '1', ";
+			$sql .= "idSector = '".$datos['idSector']."', ";
+			$sql .= "email = '".$datos['email']."', ";
+			$sql .= "idUsuario = '".$_SESSION['registrado']['idUsuario']."' ";
+						
+		$MySQL->setQuery($sql);
+		if($MySQL->execute()){
+			$id = $MySQL->getId();			
+			return $id;			
+		}
+		else{
+			throw new Exception("Error al ejecutar la consulta");
+			return false;
+		}
+	}
+	public function guardarReservaRemis($datos){
+		
+		$MySQL = MySQL::getInstance();
+		
+			/*echo "<script type=\"text/javascript\">console.log(\"";
+			print_r($datos);
+			echo "\");</script>";*/
+			
+			list($d,$m,$a) = explode('/',$datos['fecha']);
+			$fecha = "$a-$m-$d";
+			
+			$sql = "UPDATE reservas_personas_remise SET ";
+			$sql .= "cantidad_pasajeros = '".$datos['cantidad_pasajeros']."', ";
+			$sql .= "pasajeros = '".$datos['pasajeros']."', ";
+			$sql .= "fecha = '".$fecha."', ";
+			$sql .= "hora = '".$datos['hora']."', ";
+			$sql .= "origen = '".$datos['origen']."', ";
+			$sql .= "destino = '".$datos['destino']."', ";
+			$sql .= "espera = '".$datos['espera']."', ";
+			$sql .= "observaciones = '".$datos['observaciones']."', ";
+			if(isset($datos['idEstado'])) $sql .= "idEstado = '".$datos['idEstado']."', ";
+			if(isset($datos['permisos']) )$sql .= "permisos = '".$datos['permisos']."', ";
+			$sql .= "idSector = '".$datos['idSector']."', ";
+			$sql .= "email = '".$datos['email']."' ";
+			$sql .= "WHERE idReserva = '".$datos['idReserva']."' ";
+						
+		$MySQL->setQuery($sql);
+		if($MySQL->execute()){
+			
+			return $datos['idReserva'];
+			
+		}
+		else{
+			throw new Exception("Error al ejecutar la consulta");
+			return false;
+		}
+	}
+	
+	public function enviarMailReservas($asunto,$mensaje,$destinatarios=array()){
+		echo 'a';	
+		
+		$from = "Eventos – CAME";
+		$this->mailer->FromName = $from; 
+		$this->mailer->From = "eventos@came.org.ar";
+		$this->mailer->AddReplyTo('galbarracin@came.org.ar', $from);
+		$this->mailer->AddReplyTo('fmerensztein@came.org.ar', $from);
+		$this->mailer->AddReplyTo('lcastignani@came.org.ar', $from);
+		$this->mailer->AddReplyTo('mschmidt@came.org.ar ', $from);
+		$this->mailer->Subject = $asunto;
+		$this->mailer->ClearAllRecipients();
+		foreach($destinatarios as $destinatario){
+			$this->mailer->AddBCC($destinatario);
+		}
+
+		$mensaje=utf8_encode($mensaje);
+		$this->mailer->Body = utf8_decode($mensaje);
+		$log='';
+		
+		if(!$this->mailer->Send()){
+			$log.= "FALSE Starting retry command";
+			$false = 1;
+		}
+		else{
+			$log.= "Send mail command: OK \n";
+			return true;
+		}
+		if($false){
+			while(true){
+				$false++;
+				if($this->mailer->Send()){
+					$log.= "Send mail command: OK (".$false." retrys)\r\n";
+					return true;
+					break;
+				}
+			}
+		}
+		
+	}
+
+	public function guardarObservaciones($datos){
+		
+		$MySQL = MySQL::getInstance();
+		
+		
+		$sql = "INSERT INTO observaciones_internas_reservas set observaciones = '".addslashes($datos['observaciones'])."', fecha = NOW(), idReserva = '".$datos['idReserva']."',idUsuario = '".$_SESSION['registrado']['idUsuario']."' ";
+		$MySQL->setQuery($sql);
+		if($MySQL->execute()){
+			return true;
+		
+		}
+	}
+
+	public function modificarObservaciones($datos){
+		
+		$MySQL = MySQL::getInstance();
+						
+		$sql = "UPDATE observaciones_internas_reservas set fecha = NOW(), observaciones = '".addslashes($datos['observaciones'])."' WHERE idInterno = '".$datos['idInterno']."'";
+		$MySQL->setQuery($sql);
+		if($MySQL->execute()){
+			return true;
+		
+		}
+	}
+	
+	
+	
+}
+
+
+?>
