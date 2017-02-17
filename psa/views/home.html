@@ -1,0 +1,65 @@
+<div class="home" id="home" ng-controller="homeCtrl" ng-init="initHome()">
+	<div id="datePicker" class="">
+		<svg class="spinner" width="50px" height="50px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+	   <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+	</svg>
+	</div>
+	<!--md-button class="md-icon-button topRightButton calendar" ng-click="showPicker($event)" aria-label="calendar"></md-button-->
+	<md-datepicker class="nativeDatePicker" ng-model="currentDate" md-max-date="maxDate" md-min-date="minDate" ng-change="changeDate('picker')"></md-datepicker>
+	<div class="progressBarContainer layout-padding" layout="row" layout-wrap>
+		<div class="date" flex="70" layout-align="start center" layout="row">
+			<a class="arrow prev" ng-click="changeDate('prev')">prev</a>
+			<span class="md-body-1">{{dateSelected | date:'dd-MMM-yyyy'}}</span>
+			<a class="arrow next" ng-click="changeDate('next')" ng-show="showNextArrow">next</a>
+		</div>
+		<div class="buttons" flex="30" layout-align="end center" layout="row">
+			<span ng-click="changeActivity()">
+				<img src="img/icons/directions_bike@2x.png" alt="" width="24" height="21" ng-show="!userInfo.activity">
+				<img src="img/icons/directions_bike_active@2x.png" alt="" width="24" height="21" ng-show="userInfo.activity">
+			</span>
+			<span ng-click="changeSunny()">
+				<img src="img/icons/sunny@2x.png" alt="" width="22" height="23" ng-show="!userInfo.sunny">
+				<img src="img/icons/sunny_active@2x.png" alt="" width="22" height="23" ng-show="userInfo.sunny">
+			</span>
+		</div>
+		<md-card class="card" flex="100">
+		  <md-card-content class="cardContent">
+		    <h3 class="md-caption">Objetivo diario: <span>{{targetCategory}}</span></h3>
+		    <span class="numbers">
+		    	<span class="progressedNumber">{{userInfo.drunk}}</span> / <span class="targetNumber">{{userInfo.target}}</span> ml
+		    </span>
+		    <div class="progressBar" ng-class="{ 'hidePointer' : progressed() > 95 }">
+		    	<div class="progressed" style="width: {{progressed()}}%"></div>
+		    </div>
+		  </md-card-content>
+		</md-card>
+	</div>
+	<div class="list no-item message" layout="row" layout-align="center center" layout-wrap ng-show="showGoalComplete()">
+		<span class="md-body-1">Beber agua en Exceso es un riesgo para Tu Salud</span> 
+	</div>
+	<div class="list" ng-show="userInfo.glasses.length">
+		<md-list class="no-padding">
+	      <md-subheader class="md-body-1 subheader">Líquidos bebidos durante el día:</md-subheader>
+		  <md-list-item layout="row" layout-align="space-between center" class="itemList" ng-repeat='item in userInfo.glasses' ng-animate=" 'animate' ">
+		    <div class="md-list-item-text text" layout="row" layout-align="space-between center">
+		    	<div class="imgContainer">
+		    		<img ng-src="img/icons/{{getIconHome(item.type)}}" alt="">
+		    	</div>
+			    <div>
+			    	<h3 class="md-body-1">{{item.capacitance}} ml</h3>
+			    	<p class="md-body-1">{{item.hour}}</p>
+			    </div>
+		    </div>
+		    <div>
+		    	<a href="#" class="delete" ng-click="showConfirm($event, $index)" ng-show="isToday">delete</a>
+		    </div>
+		  </md-list-item>
+		</md-list>
+	</div>
+	<div class="list no-item" ng-hide="userInfo.glasses.length" layout="row" layout-align="center center" layout-wrap>
+		<img src="img/icons/ic_sincarga@2x.png" alt="" width="47" height="86">
+		<span class="md-body-1">No bebiste Líquido!!!</span> 
+		<span class="md-body-1" ng-show="isToday">Selecciona el ícono + para agregar</span>
+	</div>
+	<md-button class="md-fab addNew" aria-label="Add new" ng-click="showList($event)" ng-class=" {'show' : showAddNewButton } ">Agregar</md-button>
+</div>

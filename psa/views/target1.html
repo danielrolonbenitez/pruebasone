@@ -1,0 +1,33 @@
+<div class="target unit" ng-controller="targetCtrl">
+	<form novalidate>
+		<div class="container">
+			<div class="textContainer">
+				<p class="md-body-1">Selecciona las unidades que utilizas a diario</p>
+			</div>
+			<fieldset class="greyContainer form">
+				<div class="row">
+					<span class="md-caption">Peso</span>
+					<span class="md-subhead">Seleccione unidades</span>
+					<div class="radioContainer" ng-init="dataTarget.unit='kg'">
+						<input type="radio" name="weight" ng-model="dataTarget.unit" value="kg" id="radio-kg" ng-required="!dataTarget.unit">
+						<label for="radio-kg" ng-click="">kg</label>
+						<input type="radio" name="weight" ng-model="dataTarget.unit" value="lb" id="radio-lb" ng-required="!dataTarget.unit">
+						<label for="radio-lb" ng-click="">lb</label>
+					</div>
+				</div>
+				<div class="row">
+					<span class="md-caption">El volumen</span>
+					<span class="md-subhead">Seleccione unidades</span>
+					<div class="radioContainer" ng-init="dataTarget.volume='ml'">
+						<input type="radio" name="volume" ng-model="dataTarget.volume" value="ml" id="radio-ml" ng-required="!dataTarget.volume">
+						<label for="radio-ml" ng-click="">ml</label>
+						<input type="radio" name="volume" ng-model="dataTarget.volume" value="oz" id="radio-oz" ng-required="!dataTarget.volume">
+						<label for="radio-oz" ng-click="">oz</label>
+					</div>
+				</div>
+				<span class="md-body-1 clarification">*Puedes cambiar las unidades en Objetivos</span>
+			</fieldset>
+			<button class="topRightButton checkButton" ng-click="submit(dataTarget)">ok</button>
+		</div>
+	</form>
+</div>

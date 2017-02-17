@@ -1,0 +1,72 @@
+<div class="target calculator" ng-controller="calculatorCtrl" ng-init="initCalculator()">
+	<form>
+		<div class="container">
+			<div class="textContainer">
+				<span class="md-body-1">Objetivos:</span>
+				<div class="valueContainer" layout="row" layout-align="start center">
+					<!--input type="text" value="0" ng-model="dataTarget.userQuantity" ng-change="updateTotal()"-->
+					<span>{{dataTarget.userQuantity}}</span>
+					<span class="plus">+</span>
+					<span>{{dataTarget.sunnyQuantity}}</span>
+					<span class="plus">+</span>
+					<span ng-model="dataTarget.activity">{{dataTarget.activityQuantity}}</span>
+					<span>=</span>
+					<span>{{dataTarget.total}}{{volume}}</span>
+				</div>
+				<div class="iconsContainer" layout="row" layout-align="start center">
+					<img ng-src="img/icons/create@2x.png" alt="" width="18" height="18">
+					<span class="plus">+</span>
+					<img ng-src="img/icons/{{sunnyImg}}" alt="" width="22" height="23">
+					<span class="plus">+</span>
+					<img ng-src="img/icons/{{activityImg}}" alt="" width="24" height="21">
+					<span>=</span>
+					<img ng-src="img/icons/flag@2x.png" alt="" width="15" height="17">
+				</div>
+			</div>
+			<fieldset class="greyContainer form">
+				<md-input-container class="inputContainer">
+			        <label>Sexo</label>
+			        <md-select ng-model="dataTarget.sex">
+			        	<md-option ng-value="">Seleccione de la lista</md-option>
+			          	<md-option ng-value="1">Mujer</md-option>
+			          	<md-option ng-value="2">Hombre</md-option>
+			        </md-select>
+			    </md-input-container>
+
+			    <md-input-container class="inputContainer">
+			        <label>Peso</label>
+			        <input type="number" ng-model="dataTarget.weight" placeholder="Ingrese su peso en kg" ng-change="updateTotal()">
+			    </md-input-container>
+
+			    <!--md-input-container class="inputContainer">
+			        <label>Estilo de vida</label>
+			        <md-select ng-model="dataTarget.lifeStyle">
+			        	<md-option ng-value="">Seleccione de la lista</md-option>
+			          	<md-option ng-value="1">Activo</md-option>
+			          	<md-option ng-value="0">Sedentario</md-option>
+			        </md-select>
+			    </md-input-container-->
+
+			    <md-input-container class="inputContainer">
+			        <label>Día de calor</label>
+			        <md-select ng-model="dataTarget.sunny" ng-change="updateSunny()">
+			        	<md-option ng-value="">Seleccione el estado predeterminado</md-option>
+			          	<md-option ng-value="1">Si</md-option>
+			          	<md-option ng-value="0">No</md-option>
+			        </md-select>
+			    </md-input-container>
+
+			    <md-input-container class="inputContainer">
+			        <label>Aumento de la actividad física</label>
+			        <md-select ng-model="dataTarget.activity"  ng-change="updateActivity()">
+			        	<md-option ng-value="">Seleccione el estado predeterminado</md-option>
+			          	<md-option ng-value="1">Si</md-option>
+			          	<md-option ng-value="0">No</md-option>
+			        </md-select>
+			    </md-input-container>
+				
+			</fieldset>
+			<button class="topRightButton checkButton" ng-click="submit(dataTarget)">ok</button>
+		</div>
+	</form>
+</div>

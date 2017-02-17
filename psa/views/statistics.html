@@ -1,0 +1,38 @@
+<div class="statistics" ng-controller="statisticsCtrl" ng-init="initStatistics()">
+	<div class="container">
+		<div class="textContainer">
+			<p class="md-body-1">Análisis de tendencia</p>
+		</div>
+		<div class="list greyContainer statisticList">
+			<p class="subheaderList" layout="row" layout-align="space-between center">
+				<span class="md-body-1">Período</span>
+				<span class="md-body-1">I/día</span>
+			</p>
+			<ul ng-repeat="item in statisticsList">
+				<li layout="row" layout-align="space-between center">
+					<span class="md-body-1">{{item.description}}</span>
+					<span class="md-body-1">{{item.value | number:2}}</span>
+	  			</li>
+			</ul>
+		</div>
+		<div class="textContainer">
+			<p class="md-body-1">Resumen</p>
+		</div>
+		<div class="list greyContainer statisticList">
+			<ul>
+				<li layout="row" layout-align="space-between center">
+					<span class="md-body-1">Número de entradas</span>
+					<span class="md-body-1">{{resume.entries}}</span>
+	  			</li>
+	  			<li layout="row" layout-align="space-between center">
+					<span class="md-body-1"> Número de días desde la primera entrada</span>
+					<span class="md-body-1">{{resume.firstEntry}}</span>
+	  			</li>
+	  			<li layout="row" layout-align="space-between center">
+					<span class="md-body-1">Total de litros registrados</span>
+					<span class="md-body-1">{{resume.totalLiters | number:2}}</span>
+	  			</li>
+			</ul>
+		</div>
+	</div>
+</div>

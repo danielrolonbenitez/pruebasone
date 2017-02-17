@@ -1,0 +1,18 @@
+<md-dialog class="dialog" ng-controller="homeCtrl" ng-init="initAddNew()">
+	<div class="list">
+		<md-list class="no-padding">
+	      <md-subheader class="md-title subheader">Selecciona un vaso para agregar</md-subheader>
+		  <md-list-item layout="row" layout-align="space-between center" class="itemList"  ng-repeat="item in glassTypes">
+		    <div class="md-list-item-text text" class="md-list-item-text text" layout="row" layout-align="start center" ng-click="addNewGlass(item)">
+		    	<div class="imgContainer">
+		    		<img ng-src="img/icons/{{item.iconSelect}}" alt="">
+		    	</div>
+			    <div>
+			    	<h3 class="md-body-1">{{item.capacitance}} ml</h3>
+			    </div>
+		    </div>
+		  </md-list-item>
+		</md-list>
+		<md-button ng-click="answer('not useful')" class="btn">CANCELAR</md-button>
+	</div>
+</md-dialog>

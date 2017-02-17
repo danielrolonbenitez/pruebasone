@@ -1,0 +1,72 @@
+<div class="container weeklyCharts" ng-init="initCharts()" ng-controller="weeklyChartsCtrl" layout="column">
+	<md-menu md-position-mode="target-right target">
+		<md-button ng-click="$mdOpenMenu($event)" class="md-icon-button topRightButton optionsButton" aria-label="Options"></md-button>
+		<md-menu-content width="4">
+			<md-menu-item>
+				<md-button>
+					<div layout="row">
+	                    <p flex ui-sref="app.dialyCharts">Gráfico diario</p>
+                  	</div>
+              	</md-button>
+              	<md-button>
+					<div layout="row">
+	                    <p flex ui-sref="app.weeklyCharts">Gráfico semanal</p>
+                  	</div>
+              	</md-button>
+				<md-button>
+					<div layout="row">
+	                    <p flex ui-sref="app.monthlyCharts">Gráfico mensual</p>
+                  	</div>
+              	</md-button>
+			</md-menu-item>
+		</md-menu-content>
+	</md-menu>
+	<div flex class="chartDate layout-padding" layout="row" layout-wrap flex="auto">
+		<div class="date" flex="70" layout-align="start center" layout="row">
+			<span class="md-body-1">
+				<a class="arrow prev" ng-click="changeDate('prev')">prev</a>
+				{{week}}/{{year}}
+				<a class="arrow next" ng-show="showNextArrow" ng-click="changeDate('next')">next</a>
+			</span>
+		</div>
+	</div>
+	<div flex class="chart" flex="auto">
+		<div class="chartRow">
+			<div class="ejeY">
+				<span class="val">5000</span>
+				<span class="val">4500</span>
+				<span class="val">4000</span>
+				<span class="val">3500</span>
+				<span class="val">3000</span>
+				<span class="val">2500</span>
+				<span class="val">2000</span>
+				<span class="val">1500</span>
+				<span class="val">1000</span>
+				<span class="val">500</span>
+			</div>
+			<div class="columns">
+				<div class="columnContainer">
+					<div class="column" ng-repeat="column in chart">
+						<span class="target" style="height: {{column.target.height}}%;"></span>
+						<span class="drunk" style="height: {{column.drunk.height}}%;"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ejeX">
+			<span class="val">Lun</span>
+			<span class="val">Mar</span>
+			<span class="val">Mie</span>
+			<span class="val">Jue</span>
+			<span class="val">Vie</span>
+			<span class="val">Sab</span>
+			<span class="val">Dom</span>
+		</div>
+	</div>
+
+	<div class="referencias" flex flex="auto">
+		<span class="consumido">Agua consumida</span>
+		<span class="objetivo">Objetivo</span>
+	</div>
+
+</div>

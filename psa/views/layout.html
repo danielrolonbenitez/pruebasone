@@ -1,0 +1,57 @@
+<div layout="column" class="fullHeight" ng-init="init($event)" ng-cloak>
+	
+  <section layout="row" class="fullHeight">
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2 menu" md-component-id="left" md-swipe-left="close()" >
+      <md-toolbar class="menuHeader">
+
+      </md-toolbar>
+      <md-content layout-padding class="menuItems">
+        <md-button ng-click="close()" class="md-body-1" ui-sref="app.home">
+          <span class="imgContainer">
+            <img src="img/icons/ic_home_drawer@2x.png" alt="" width="20" height="17">
+          </span>
+         Home
+       </md-button>
+		  	<md-button ng-click="close()" class="md-body-1" ui-sref="app.calculator">
+          <span class="imgContainer">
+            <img src="img/icons/ic_objetivo_drawer@2x.png" alt="" width="15" height="17">
+          </span> 
+          Objetivo
+        </md-button>
+        <md-button ng-click="close()" class="md-body-1" ui-sref="app.dialyCharts">
+          <span class="imgContainer">
+            <img src="img/icons/ic_graficos_drawer@2x.png" alt="" width="16" height="16">
+          </span>
+          Gráficos
+        </md-button>
+		  	<md-button ng-click="close()" class="md-body-1" ui-sref="app.statistics">
+          <span class="imgContainer">
+            <img src="img/icons/ic_estadisticas_drawer@2x.png" alt="" width="20" height="12">
+          </span> 
+          Estadísticas
+        </md-button>
+		  	<md-button ng-click="close()" class="md-body-1" ui-sref="app.settings">
+          <span class="imgContainer">
+            <img src="img/icons/ic_configuracion_drawer@2x.png" alt="" width="18" height="18">
+          </span> 
+          Configuración
+        </md-button>
+      </md-content>
+    </md-sidenav>
+    <md-content flex class="content">
+      <md-toolbar class="header">
+        <div class="md-toolbar-tools">
+          <md-button ng-click="toggleLeft()" class="md-icon-button topLeftButton menuButton" aria-label="Menu" ng-show="appData.seccionActual == 'home'" ng-class=" {'avoid-clicks' : isOpenLeft() } "></md-button>
+          <md-button ng-click="back()" class="md-icon-button topLeftButton backButton" aria-label="Back" ng-show="appData.seccionActual != 'home'"></md-button>
+          <h2>
+            <span class="md-title">{{appData.tituloSeccion}}</span>
+          </h2>
+        </div>
+      </md-toolbar>
+        <div name="layoutContent" class="layoutContent" layout="column" ui-view flex="grow" class="fullHeight"></div>
+        
+      </div>
+    </md-content>
+    
+  </section>
+</div>

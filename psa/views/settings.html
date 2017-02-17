@@ -1,0 +1,16 @@
+<div class="settings" ng-controller="settingsCtrl">
+	<div class="container">
+		<ul class="list">
+			<li layout="row" layout-align="space-between center">
+				<span class="md-subhead">Aviso de objetivo logrado</span> 
+				<md-switch ng-model="notifications.mode" aria-label="Switch 1" class="md-block switch" ng-change="change()"></md-switch>
+  			</li>
+			<li ui-sref="app.aboutUs({version: versionCode })" layout="row" layout-align="space-between center">
+				<a  class="md-subhead span">Acerca de nosotros</a>
+			</li>
+			<li layout="row" layout-align="space-between center">
+				<a href="https://play.google.com/store/apps/details?id=com.psa.aguapura" class="md-subhead span">Valoración</span>
+			</li>
+		</ul>
+	</div>
+</div>
